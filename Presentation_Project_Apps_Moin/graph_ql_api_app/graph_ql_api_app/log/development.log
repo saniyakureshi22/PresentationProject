@@ -1,0 +1,503 @@
+  [1m[35m (416.3ms)[0m  [1m[35mCREATE DATABASE "graph_ql_api_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (335.1ms)[0m  [1m[35mCREATE DATABASE "graph_ql_api_app_test" ENCODING = 'unicode'[0m
+  [1m[35m (63.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (56.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5914540919819041650)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArtists (20240426162817)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.4ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240426162817"]]
+  [1m[36mTRANSACTION (14.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateItems (20240426162824)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (43.2ms)[0m  [1m[35mCREATE TABLE "items" ("id" bigserial primary key, "title" character varying, "description" text, "image_url" character varying, "artist_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_2190cda116"
+FOREIGN KEY ("artist_id")
+  REFERENCES "artists" ("id")
+)[0m
+  [1m[35m (20.1ms)[0m  [1m[35mCREATE INDEX "index_items_on_artist_id" ON "items" ("artist_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240426162824"]]
+  [1m[36mTRANSACTION (27.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-04-26 16:30:30.093423"], ["updated_at", "2024-04-26 16:30:30.093423"]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5914540919819041650)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArtist Create (0.4ms)[0m  [1m[32mINSERT INTO "artists" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Taylor"], ["last_name", "Swift"], ["email", "taylor.swift@example.com"], ["created_at", "2024-04-26 16:30:30.314775"], ["updated_at", "2024-04-26 16:30:30.314775"]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mItem Create (0.9ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Red (Taylor's Version)"], ["description", "Loving him is like driving a new Maserati down a dead-end street..."], ["image_url", "https://static.wikia.nocookie.net/taylor-swift/images/9/93/Red_%28Taylor%27s_Version%29.jpeg/revision/latest/scale-to-width-down/1000?cb=20210618181243"], ["artist_id", 1], ["created_at", "2024-04-26 16:30:30.430321"], ["updated_at", "2024-04-26 16:30:30.430321"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "All Too Well (Taylor's Version)"], ["description", "It was rare, I was there, I remember it all too well"], ["image_url", "https://static.wikia.nocookie.net/taylor-swift/images/9/93/Red_%28Taylor%27s_Version%29.jpeg/revision/latest/scale-to-width-down/1000?cb=20210618181243"], ["artist_id", 1], ["created_at", "2024-04-26 16:30:30.442674"], ["updated_at", "2024-04-26 16:30:30.442674"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "We Are Never Ever Getting Back Together (Taylor's Version)"], ["description", "You go talk to your friends, talk to my friends, talk to me"], ["image_url", "https://static.wikia.nocookie.net/taylor-swift/images/9/93/Red_%28Taylor%27s_Version%29.jpeg/revision/latest/scale-to-width-down/1000?cb=20210618181243"], ["artist_id", 1], ["created_at", "2024-04-26 16:30:30.454677"], ["updated_at", "2024-04-26 16:30:30.454677"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Begin Again (Taylor's Version)"], ["description", "But on a Wednesday in a café, I watched it begin again"], ["image_url", "https://static.wikia.nocookie.net/taylor-swift/images/9/93/Red_%28Taylor%27s_Version%29.jpeg/revision/latest/scale-to-width-down/1000?cb=20210618181243"], ["artist_id", 1], ["created_at", "2024-04-26 16:30:30.467512"], ["updated_at", "2024-04-26 16:30:30.467512"]]
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2024-04-26 22:03:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 15.2ms | Allocations: 633)
+Completed 200 OK in 248ms (Views: 68.8ms | ActiveRecord: 0.0ms | Allocations: 5723)
+
+
+Started GET "/graphql" for 127.0.0.1 at 2024-04-26 22:03:53 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/graphql"):
+  
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:04:08 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 1226.3ms | Allocations: 159824)
+Completed 200 OK in 1242ms (Views: 1229.8ms | ActiveRecord: 0.0ms | Allocations: 160746)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:04:09 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 304ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 20210)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:04:20 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"# Welcome to GraphiQL\n#\n# GraphiQL is an in-browser tool for writing, validating, and\n# testing GraphQL queries.\n#\n# Type queries into this side of the screen, and you will see intelligent\n# typeaheads aware of the current GraphQL type schema and live syntax and\n# validation errors highlighted within the text.\n#\n# GraphQL queries typically start with a \"{\" character. Lines that start\n# with a # are ignored.\n#\n# An example GraphQL query might look like:\n#\n#     {\n#       field(arg: \"value\") {\n#         subField\n#       }\n#     }\n#\n# Keyboard shortcuts:\n#\n#   Prettify query:  Shift-Ctrl-P (or press the prettify button)\n#\n#  Merge fragments:  Shift-Ctrl-M (or press the merge button)\n#\n#        Run Query:  Ctrl-Enter (or press the play button)\n#\n#    Auto Complete:  Ctrl-Space (or just start typing)\n#\n\n", "graphql"=>{"query"=>"# Welcome to GraphiQL\n#\n# GraphiQL is an in-browser tool for writing, validating, and\n# testing GraphQL queries.\n#\n# Type queries into this side of the screen, and you will see intelligent\n# typeaheads aware of the current GraphQL type schema and live syntax and\n# validation errors highlighted within the text.\n#\n# GraphQL queries typically start with a \"{\" character. Lines that start\n# with a # are ignored.\n#\n# An example GraphQL query might look like:\n#\n#     {\n#       field(arg: \"value\") {\n#         subField\n#       }\n#     }\n#\n# Keyboard shortcuts:\n#\n#   Prettify query:  Shift-Ctrl-P (or press the prettify button)\n#\n#  Merge fragments:  Shift-Ctrl-M (or press the merge button)\n#\n#        Run Query:  Ctrl-Enter (or press the play button)\n#\n#    Auto Complete:  Ctrl-Space (or just start typing)\n#\n\n"}}
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 967)
+
+
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:07:05 +0530
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:07:05 +0530
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:07:05 +0530
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:07:05 +0530
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:07:05 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Parameters: {"graphql_path"=>"/graphql"}
+  Parameters: {"graphql_path"=>"/graphql"}
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 344.6ms | Allocations: 78966)
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 348.6ms | Allocations: 79736)
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 345.9ms | Allocations: 79944)
+Completed 200 OK in 403ms (Views: 362.0ms | ActiveRecord: 0.0ms | Allocations: 84645)
+
+
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 347.0ms | Allocations: 80403)
+Completed 200 OK in 405ms (Views: 363.6ms | ActiveRecord: 0.0ms | Allocations: 85566)
+
+
+Completed 200 OK in 403ms (Views: 363.2ms | ActiveRecord: 0.0ms | Allocations: 85451)
+
+
+Completed 200 OK in 408ms (Views: 367.7ms | ActiveRecord: 0.0ms | Allocations: 86643)
+
+
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 363.5ms | Allocations: 85193)
+Completed 200 OK in 418ms (Views: 377.6ms | ActiveRecord: 0.0ms | Allocations: 90312)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:07:06 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 169ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 19825)
+
+
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:07:12 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 26.4ms | Allocations: 2353)
+Completed 200 OK in 37ms (Views: 27.2ms | ActiveRecord: 0.0ms | Allocations: 2625)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:07:12 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 25ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 14897)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:07:19 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}\n", "graphql"=>{"query"=>"{\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}\n"}}
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 884)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:08:06 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  items {\n    id\n    title\n    description\n    artistId {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}\n", "graphql"=>{"query"=>"{\n  items {\n    id\n    title\n    description\n    artistId {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}\n"}}
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 915)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:08:14 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"# Welcome to GraphiQL\n#\n# GraphiQL is an in-browser tool for writing, validating, and\n# testing GraphQL queries.\n#\n# Type queries into this side of the screen, and you will see intelligent\n# typeaheads aware of the current GraphQL type schema and live syntax and\n# validation errors highlighted within the text.\n#\n# GraphQL queries typically start with a \"{\" character. Lines that start\n# with a # are ignored.\n#\n# An example GraphQL query might look like:\n#\n#     {\n#       field(arg: \"value\") {\n#         subField\n#       }\n#     }\n#\n# Keyboard shortcuts:\n#\n#   Prettify query:  Shift-Ctrl-P (or press the prettify button)\n#\n#  Merge fragments:  Shift-Ctrl-M (or press the merge button)\n#\n#        Run Query:  Ctrl-Enter (or press the play button)\n#\n#    Auto Complete:  Ctrl-Space (or just start typing)\n#\n\n", "graphql"=>{"query"=>"# Welcome to GraphiQL\n#\n# GraphiQL is an in-browser tool for writing, validating, and\n# testing GraphQL queries.\n#\n# Type queries into this side of the screen, and you will see intelligent\n# typeaheads aware of the current GraphQL type schema and live syntax and\n# validation errors highlighted within the text.\n#\n# GraphQL queries typically start with a \"{\" character. Lines that start\n# with a # are ignored.\n#\n# An example GraphQL query might look like:\n#\n#     {\n#       field(arg: \"value\") {\n#         subField\n#       }\n#     }\n#\n# Keyboard shortcuts:\n#\n#   Prettify query:  Shift-Ctrl-P (or press the prettify button)\n#\n#  Merge fragments:  Shift-Ctrl-M (or press the merge button)\n#\n#        Run Query:  Ctrl-Enter (or press the play button)\n#\n#    Auto Complete:  Ctrl-Space (or just start typing)\n#\n\n"}}
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 952)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:08:41 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}\nmutation", "graphql"=>{"query"=>"{\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}\nmutation"}}
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 851)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:09:09 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query{\n  items {\n    id\n  }\n}", "graphql"=>{"query"=>"query{\n  items {\n    id\n  }\n}"}}
+  [1m[36mItem Load (2.0ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 97ms (Views: 0.2ms | ActiveRecord: 4.5ms | Allocations: 9300)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:09:25 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}\n", "graphql"=>{"query"=>"{\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}\n"}}
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 848)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:09:36 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  items {\n    id\n    title\n    description\n  }\n}\n", "graphql"=>{"query"=>"{\n  items {\n    id\n    title\n    description\n  }\n}\n"}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1555)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:10:40 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}fragment", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}fragment"}}
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 860)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:10:52 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}"}}
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 839)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:12:26 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"type Artist {\n  id: ID!\n  firstName: String!\n  lastName: String!\n  email: String!\n}\n\ntype Item {\n  id: ID!\n  title: String!\n  description: String!\n  imageUrl: String\n  artist: Artist!\n}\n", "graphql"=>{"query"=>"type Artist {\n  id: ID!\n  firstName: String!\n  lastName: String!\n  email: String!\n}\n\ntype Item {\n  id: ID!\n  title: String!\n  description: String!\n  imageUrl: String\n  artist: Artist!\n}\n"}}
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 839)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:13:35 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}"}}
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mArtist Load (1.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+Completed 200 OK in 332ms (Views: 0.9ms | ActiveRecord: 9.1ms | Allocations: 18607)
+
+
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:13:41 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 27.5ms | Allocations: 2457)
+Completed 200 OK in 41ms (Views: 29.7ms | ActiveRecord: 0.0ms | Allocations: 2982)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:13:41 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 28ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 16379)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:13:45 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}"}}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+Completed 200 OK in 21ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 5798)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:13:57 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}"}}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+Completed 200 OK in 22ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 5761)
+
+
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:14:24 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 24.9ms | Allocations: 2347)
+Completed 200 OK in 36ms (Views: 25.7ms | ActiveRecord: 0.0ms | Allocations: 2615)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:14:24 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 27ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 15670)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:14:26 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}"}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 5752)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-26 22:14:44 +0530
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 285)
+Completed 200 OK in 12ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 991)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-26 22:16:37 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.1ms | Allocations: 489)
+Completed 200 OK in 57ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 3184)
+
+
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:16:43 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 293.9ms | Allocations: 20361)
+Completed 200 OK in 309ms (Views: 297.4ms | ActiveRecord: 0.0ms | Allocations: 21328)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:16:44 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 182ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 20738)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:16:48 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}"}}
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+Completed 200 OK in 123ms (Views: 0.3ms | ActiveRecord: 7.3ms | Allocations: 19426)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:16:59 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n  }\n}", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n  }\n}"}}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1537)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:17:04 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}"}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+Completed 200 OK in 24ms (Views: 0.4ms | ActiveRecord: 1.3ms | Allocations: 5783)
+
+
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:19:01 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 23.5ms | Allocations: 2356)
+Completed 200 OK in 34ms (Views: 24.7ms | ActiveRecord: 0.0ms | Allocations: 2629)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:19:01 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 31ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 15683)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-26 22:19:06 +0530
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 277)
+Completed 200 OK in 13ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 841)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-26 22:20:09 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.5ms | Allocations: 489)
+Completed 200 OK in 69ms (Views: 17.7ms | ActiveRecord: 0.0ms | Allocations: 3184)
+
+
+Started GET "/graphiql" for 127.0.0.1 at 2024-04-26 22:20:14 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 287.0ms | Allocations: 20350)
+Completed 200 OK in 300ms (Views: 290.4ms | ActiveRecord: 0.0ms | Allocations: 21317)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:20:15 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 186ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 20719)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:20:17 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}"}}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+Completed 200 OK in 120ms (Views: 0.2ms | ActiveRecord: 6.0ms | Allocations: 19426)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:20:31 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n  }\n}", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n  }\n}"}}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1551)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2024-04-26 22:20:36 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}", "graphql"=>{"query"=>"  {\n  items {\n    id\n    title\n    description\n    artist {\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n}"}}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/item_type.rb:18:in `artist'
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 5761)
+
+

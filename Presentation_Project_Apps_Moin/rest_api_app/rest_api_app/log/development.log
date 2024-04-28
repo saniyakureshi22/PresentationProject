@@ -1,0 +1,174 @@
+  [1m[35m (366.2ms)[0m  [1m[35mCREATE DATABASE "rest_api_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (345.5ms)[0m  [1m[35mCREATE DATABASE "rest_api_app_test" ENCODING = 'unicode'[0m
+  [1m[35m (69.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (54.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3835748497685510175)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20240426165735)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (42.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240426165735"]]
+  [1m[36mTRANSACTION (13.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFacts (20240426165743)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (41.5ms)[0m  [1m[35mCREATE TABLE "facts" ("id" bigserial primary key, "user_id" bigint NOT NULL, "fact" character varying, "likes" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_30df9dc7e4"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (19.9ms)[0m  [1m[35mCREATE INDEX "index_facts_on_user_id" ON "facts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240426165743"]]
+  [1m[36mTRANSACTION (18.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-04-26 17:01:02.811984"], ["updated_at", "2024-04-26 17:01:02.811984"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3835748497685510175)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/vi/user" for ::1 at 2024-04-26 22:36:52 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/vi/user"):
+  
+Started GET "/favicon.ico" for ::1 at 2024-04-26 22:36:53 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/vi/users" for ::1 at 2024-04-26 22:37:02 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/api/vi/users"):
+  
+Started GET "/api/vi/users" for ::1 at 2024-04-26 22:37:05 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/api/vi/users"):
+  
+Started GET "/api/vi/users" for ::1 at 2024-04-26 22:37:31 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/vi/users"):
+  
+Started GET "/api/v1/users" for ::1 at 2024-04-26 22:37:45 +0530
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 70ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 3110)
+
+
+Started GET "/api/v1/users" for ::1 at 2024-04-26 22:37:56 +0530
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 693)
+
+
+Started GET "/api/v1/users" for ::1 at 2024-04-26 22:38:02 +0530
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 693)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Oliver"], ["password", "[FILTERED]"], ["created_at", "2024-04-26 17:09:20.620141"], ["updated_at", "2024-04-26 17:09:20.620141"]]
+  [1m[36mTRANSACTION (18.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFact Create (1.3ms)[0m  [1m[32mINSERT INTO "facts" ("user_id", "fact", "likes", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["fact", "Wiley Hardeman Post was the first pilot to fly solo around the world."], ["likes", 1], ["created_at", "2024-04-26 17:09:20.752787"], ["updated_at", "2024-04-26 17:09:20.752787"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFact Create (0.2ms)[0m  [1m[32mINSERT INTO "facts" ("user_id", "fact", "likes", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["fact", "The Symphony No1 in E flat major, K.16, was written by Wolfgang Amadeus Mozart at the age of 8."], ["likes", 2], ["created_at", "2024-04-26 17:09:20.790336"], ["updated_at", "2024-04-26 17:09:20.790336"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/users" for ::1 at 2024-04-26 22:39:28 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 82ms (Views: 35.3ms | ActiveRecord: 2.7ms | Allocations: 8699)
+
+
+Started GET "/api/v1/users/1/facts" for ::1 at 2024-04-26 22:39:57 +0530
+Processing by Api::V1::FactsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mFact Load (0.4ms)[0m  [1m[34mSELECT "facts".* FROM "facts"[0m
+  ↳ app/controllers/api/v1/facts_controller.rb:6:in `index'
+Completed 200 OK in 25ms (Views: 6.9ms | ActiveRecord: 2.0ms | Allocations: 5008)
+
+
+Started GET "/api/v1/users/1/facts" for ::1 at 2024-04-26 22:40:19 +0530
+Processing by Api::V1::FactsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mFact Load (0.3ms)[0m  [1m[34mSELECT "facts".* FROM "facts"[0m
+  ↳ app/controllers/api/v1/facts_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 883)
+
+
+Started GET "/" for ::1 at 2024-04-26 22:40:23 +0530
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.9ms | Allocations: 487)
+Completed 200 OK in 87ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 4554)
+
+
+Started GET "/api/v1/users/1/facts" for ::1 at 2024-04-26 22:41:19 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users/1/facts"):
+  
+Started GET "/api/v1/users" for ::1 at 2024-04-26 22:41:25 +0530
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 26ms (Views: 3.6ms | ActiveRecord: 2.5ms | Allocations: 3324)
+
+
+Started GET "/api/v1/users" for ::1 at 2024-04-26 22:41:46 +0530
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 22ms (Views: 2.9ms | ActiveRecord: 2.2ms | Allocations: 3236)
+
+
+Started GET "/api/v1/users/1/facts" for ::1 at 2024-04-26 22:41:50 +0530
+Processing by Api::V1::FactsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mFact Load (0.2ms)[0m  [1m[34mSELECT "facts".* FROM "facts"[0m
+  ↳ app/controllers/api/v1/facts_controller.rb:6:in `index'
+Completed 200 OK in 16ms (Views: 3.1ms | ActiveRecord: 1.8ms | Allocations: 3278)
+
+
+Started GET "/" for ::1 at 2024-04-26 22:43:16 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/railties-7.0.8.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.2ms | Allocations: 490)
+Completed 200 OK in 77ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 4048)
+
+
+Started GET "/api/v1/users" for ::1 at 2024-04-26 22:43:23 +0530
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 42ms (Views: 10.7ms | ActiveRecord: 2.7ms | Allocations: 6640)
+
+
+Started GET "/api/v1/users/1/facts" for ::1 at 2024-04-26 22:43:32 +0530
+Processing by Api::V1::FactsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mFact Load (0.5ms)[0m  [1m[34mSELECT "facts".* FROM "facts"[0m
+  ↳ app/controllers/api/v1/facts_controller.rb:6:in `index'
+Completed 200 OK in 26ms (Views: 6.9ms | ActiveRecord: 1.9ms | Allocations: 5009)
+
+
+Started GET "/api/v1/users/1/facts" for ::1 at 2024-04-26 22:43:35 +0530
+Processing by Api::V1::FactsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mFact Load (0.4ms)[0m  [1m[34mSELECT "facts".* FROM "facts"[0m
+  ↳ app/controllers/api/v1/facts_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.4ms | Allocations: 870)
+
+
+Started GET "/api/v1/users" for ::1 at 2024-04-26 22:44:01 +0530
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.5ms | Allocations: 793)
+
+
