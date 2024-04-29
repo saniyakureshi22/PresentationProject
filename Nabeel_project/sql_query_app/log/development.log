@@ -1,0 +1,966 @@
+  [1m[35m (0.7ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+SELECT * FROM users WHERE age > 30;
+[0m
+  [1m[35m (0.4ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+SELECT * FROM users WHERE age > 30;
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+SELECT * FROM users WHERE age > 30;
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+SELECT * FROM users WHERE age > 30;
+[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-04-29 10:22:22.357788', '2024-04-29 10:22:22.357791') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20240429102139)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429102139') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+SELECT * FROM users WHERE age > 30;
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20240429102531)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20240429102531)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (15.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-04-29 10:29:58.788414', '2024-04-29 10:29:58.788417') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20240429102531)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429102531') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "John Doe"], ["age", 25], ["created_at", "2024-04-29 10:30:07.778482"], ["updated_at", "2024-04-29 10:30:07.778482"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jane Smith"], ["age", 35], ["created_at", "2024-04-29 10:30:07.782746"], ["updated_at", "2024-04-29 10:30:07.782746"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Alice Johnson"], ["age", 30], ["created_at", "2024-04-29 10:30:07.786107"], ["updated_at", "2024-04-29 10:30:07.786107"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+SELECT * FROM users WHERE age > 30;
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 40 WHERE name = 'John';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 40 WHERE name = 'John';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (0.2ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "John Doe"], ["age", 25], ["created_at", "2024-04-29 10:56:16.009897"], ["updated_at", "2024-04-29 10:56:16.009897"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jane Smith"], ["age", 35], ["created_at", "2024-04-29 10:56:16.014902"], ["updated_at", "2024-04-29 10:56:16.014902"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Alice Johnson"], ["age", 30], ["created_at", "2024-04-29 10:56:16.018964"], ["updated_at", "2024-04-29 10:56:16.018964"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Alice Johnson"], ["age", 40], ["created_at", "2024-04-29 10:56:16.022994"], ["updated_at", "2024-04-29 10:56:16.022994"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 40 WHERE name = 'John';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35m-- Select all users
+-- SELECT * FROM users;
+
+-- Select users with age greater than 30
+SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 40 WHERE name = 'John';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35m-- Select all users
+-- SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 40 WHERE name = 'John';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35m-- Select all users
+-- SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 40 WHERE name = 'John';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (11.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Johny Doooeee"], ["age", 25], ["created_at", "2024-04-29 10:57:55.007942"], ["updated_at", "2024-04-29 10:57:55.007942"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "John Doe"], ["age", 25], ["created_at", "2024-04-29 10:57:55.012189"], ["updated_at", "2024-04-29 10:57:55.012189"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jane Smith"], ["age", 35], ["created_at", "2024-04-29 10:57:55.015250"], ["updated_at", "2024-04-29 10:57:55.015250"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Alice Johnsonnnn"], ["age", 30], ["created_at", "2024-04-29 10:57:55.017944"], ["updated_at", "2024-04-29 10:57:55.017944"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Alice Johnson"], ["age", 40], ["created_at", "2024-04-29 10:57:55.020630"], ["updated_at", "2024-04-29 10:57:55.020630"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35m-- Select all users
+-- SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 40 WHERE name = 'John';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (10.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Johny Doooeee"], ["age", 20], ["created_at", "2024-04-29 10:58:11.618770"], ["updated_at", "2024-04-29 10:58:11.618770"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "John Doe"], ["age", 25], ["created_at", "2024-04-29 10:58:11.622489"], ["updated_at", "2024-04-29 10:58:11.622489"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jane Smith"], ["age", 35], ["created_at", "2024-04-29 10:58:11.625195"], ["updated_at", "2024-04-29 10:58:11.625195"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Alice Johnsonnnn"], ["age", 30], ["created_at", "2024-04-29 10:58:11.629525"], ["updated_at", "2024-04-29 10:58:11.629525"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Alice Johnson"], ["age", 40], ["created_at", "2024-04-29 10:58:11.632507"], ["updated_at", "2024-04-29 10:58:11.632507"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (16.9ms)[0m  [1m[35m-- Select all users
+-- SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 40 WHERE name = 'John';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 40 WHERE name = 'John';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.4ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+SELECT users.*, orders.*
+FROM users
+INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20240429110241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "orders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "product" varchar, "quantity" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_orders_on_user_id" ON "orders" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429110241') RETURNING "version"[0m
+  [1m[36mTRANSACTION (11.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+SELECT users.*, orders.*
+FROM users
+INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+SELECT users.*, orders.*
+FROM users
+JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+SELECT users.*, orders.*
+FROM users
+LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (11.0ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Johny Doooeee"], ["age", 20], ["created_at", "2024-04-29 11:03:54.074233"], ["updated_at", "2024-04-29 11:03:54.074233"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "John Doe"], ["age", 25], ["created_at", "2024-04-29 11:03:54.078110"], ["updated_at", "2024-04-29 11:03:54.078110"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jane Smith"], ["age", 35], ["created_at", "2024-04-29 11:03:54.081003"], ["updated_at", "2024-04-29 11:03:54.081003"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Alice Johnsonnnn"], ["age", 30], ["created_at", "2024-04-29 11:03:54.084842"], ["updated_at", "2024-04-29 11:03:54.084842"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Alice Johnson"], ["age", 40], ["created_at", "2024-04-29 11:03:54.088025"], ["updated_at", "2024-04-29 11:03:54.088025"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Johny Doooeee"], ["age", 20], ["created_at", "2024-04-29 11:04:30.247495"], ["updated_at", "2024-04-29 11:04:30.247495"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "John Doe"], ["age", 25], ["created_at", "2024-04-29 11:04:30.251248"], ["updated_at", "2024-04-29 11:04:30.251248"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jane Smith"], ["age", 35], ["created_at", "2024-04-29 11:04:30.253957"], ["updated_at", "2024-04-29 11:04:30.253957"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Alice Johnsonnnn"], ["age", 30], ["created_at", "2024-04-29 11:04:30.256843"], ["updated_at", "2024-04-29 11:04:30.256843"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Alice Johnson"], ["age", 40], ["created_at", "2024-04-29 11:04:30.260529"], ["updated_at", "2024-04-29 11:04:30.260529"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrder Create (1.6ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "product", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 23], ["product", "Product A"], ["quantity", 2], ["created_at", "2024-04-29 11:04:30.294013"], ["updated_at", "2024-04-29 11:04:30.294013"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrder Create (1.0ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "product", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 23], ["product", "Product B"], ["quantity", 3], ["created_at", "2024-04-29 11:04:30.298834"], ["updated_at", "2024-04-29 11:04:30.298834"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrder Create (0.9ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "product", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 24], ["product", "Product C"], ["quantity", 1], ["created_at", "2024-04-29 11:04:30.301984"], ["updated_at", "2024-04-29 11:04:30.301984"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- Select users with age greater than 30
+SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+SELECT users.*, orders.*
+FROM users
+INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+SELECT users.*, orders.*
+FROM users
+JOIN orders ON users.id = orders.user_id;
+
+-- -- Select users and their corresponding orders using LEFT OUTER JOIN
+SELECT users.*, orders.*
+FROM users
+LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35m-- Select all users
+-- SELECT * FROM users;
+
+-- -- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+SELECT users.*, orders.*
+FROM users
+INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35m-- Select all users
+-- SELECT * FROM users;
+
+-- -- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+SELECT users.*, orders.*
+FROM users
+JOIN orders ON users.id = orders.user_id;
+
+-- -- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35m-- Select all users
+-- SELECT * FROM users;
+
+-- -- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- -- Select users and their corresponding orders using LEFT OUTER JOIN
+SELECT users.*, orders.*
+FROM users
+LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (11.3ms)[0m  [1m[35m-- Select all users
+-- SELECT * FROM users;
+
+-- -- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35m-- Select all users
+SELECT * FROM users;
+
+-- -- Select users with age greater than 30
+-- SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35m-- Select all users
+-- SELECT * FROM users;
+
+-- -- Select users with age greater than 30
+SELECT * FROM users WHERE age > 30;
+
+-- -- Delete users with age less than 25
+-- DELETE FROM users WHERE age < 25;
+-- -- Update age of users with name 'John' to 40
+-- UPDATE users SET age = 60 WHERE name = 'Alice Johnsonnnn';
+-- -- Select users and their corresponding orders
+-- SELECT users.*, orders.*
+-- FROM users
+-- INNER JOIN orders ON users.id = orders.user_id;
+-- -- Select users and their corresponding orders (equivalent to INNER JOIN)
+-- SELECT users.*, orders.*
+-- FROM users
+-- JOIN orders ON users.id = orders.user_id;
+
+-- -- -- Select users and their corresponding orders using LEFT OUTER JOIN
+-- SELECT users.*, orders.*
+-- FROM users
+-- LEFT OUTER JOIN orders ON users.id = orders.user_id;
+[0m
+Started POST "/api/execute_query" for ::1 at 2024-04-29 18:06:44 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::QueriesController#execute as */*
+  Parameters: {"query"=>"SELECT * FROM users;"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 554)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.1.3.2) lib/action_controller/metal/request_forgery_protection.rb:293:in `handle_unverified_request'
+actionpack (7.1.3.2) lib/action_controller/metal/request_forgery_protection.rb:388:in `handle_unverified_request'
+actionpack (7.1.3.2) lib/action_controller/metal/request_forgery_protection.rb:377:in `verify_authenticity_token'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:202:in `block (2 levels) in halting'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:203:in `block in halting'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.10) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.10) lib/rack/etag.rb:29:in `call'
+rack (3.0.10) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.10) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.10) lib/rack/method_override.rb:28:in `call'
+rack (3.0.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/api/execute_query" for ::1 at 2024-04-29 18:06:46 +0530
+Processing by Api::QueriesController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  "}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 453)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.1.3.2) lib/action_controller/metal/request_forgery_protection.rb:293:in `handle_unverified_request'
+actionpack (7.1.3.2) lib/action_controller/metal/request_forgery_protection.rb:388:in `handle_unverified_request'
+actionpack (7.1.3.2) lib/action_controller/metal/request_forgery_protection.rb:377:in `verify_authenticity_token'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:202:in `block (2 levels) in halting'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:203:in `block in halting'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.10) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.10) lib/rack/etag.rb:29:in `call'
+rack (3.0.10) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.10) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.10) lib/rack/method_override.rb:28:in `call'
+rack (3.0.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/api/execute_query" for ::1 at 2024-04-29 18:08:09 +0530
+Processing by Api::QueriesController#execute as */*
+  Parameters: {"query"=>"SELECT * FROM users;"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT * FROM users;[0m
+  ↳ app/controllers/api/queries_controller.rb:8:in `execute'
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 1.5ms | Allocations: 3067)
+
+
+Started POST "/api/execute_query" for ::1 at 2024-04-29 18:08:47 +0530
+Processing by Api::QueriesController#execute as */*
+  Parameters: {"query"=>"UPDATE users SET age = 70 WHERE name = 'Alice Johnsonnnn';"}
+  [1m[35m (10.9ms)[0m  [1m[33mUPDATE users SET age = 70 WHERE name = 'Alice Johnsonnnn';[0m
+  ↳ app/controllers/api/queries_controller.rb:8:in `execute'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 10.9ms | Allocations: 521)
+
+
+Started POST "/api/execute_query" for ::1 at 2024-04-29 18:08:58 +0530
+Processing by Api::QueriesController#execute as */*
+  Parameters: {"query"=>"SELECT * FROM users;"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT * FROM users;[0m
+  ↳ app/controllers/api/queries_controller.rb:8:in `execute'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 662)
+
+
+Started POST "/api/execute_query" for ::1 at 2024-04-29 18:13:01 +0530
+Processing by Api::QueriesController#execute as */*
+  Parameters: {"query"=>"SELECT users.*, orders.*\nFROM users\nJOIN orders ON users.id = orders.user_id;"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT users.*, orders.*
+FROM users
+JOIN orders ON users.id = orders.user_id;[0m
+  ↳ app/controllers/api/queries_controller.rb:8:in `execute'
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 676)
+
+
+Started GET "/api/execute_query" for ::1 at 2024-04-29 18:52:20 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/api/execute_query"):
+  
+Started GET "/api/fetch_all_users" for ::1 at 2024-04-29 18:52:48 +0530
+Processing by Api::QueriesController#fetch_all_users as */*
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT * FROM users;[0m
+  ↳ app/controllers/api/queries_controller.rb:15:in `fetch_all_users'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 950)
+
+
+Started GET "/api/fetch_all_users" for ::1 at 2024-04-29 19:00:46 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::QueriesController#fetch_all_users as */*
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT * FROM users;[0m
+  ↳ app/controllers/api/queries_controller.rb:15:in `fetch_all_users'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 2650)
+
+
+Started GET "/api/fetch_all_users" for ::1 at 2024-04-29 19:05:41 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::QueriesController#fetch_all_users as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT * FROM users;[0m
+  ↳ app/controllers/api/queries_controller.rb:15:in `fetch_all_users'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 2650)
+
+

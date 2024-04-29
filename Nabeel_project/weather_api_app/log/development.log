@@ -1,0 +1,392 @@
+Started GET "/" for ::1 at 2024-04-28 19:33:15 +0530
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 524)
+Completed 200 OK in 22ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 9141)
+
+
+Started GET "/weather?city=London" for ::1 at 2024-04-28 19:34:46 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London"}
+Completed 404 Not Found in 1547ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 1576)
+
+
+Started GET "/weather?city=London" for ::1 at 2024-04-28 19:35:51 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London"}
+Completed 404 Not Found in 118105ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 13517259)
+
+
+[dotenv] Set [36mOPENWEATHERMAP_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/weather?city=London" for ::1 at 2024-04-28 19:38:34 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London"}
+Completed 200 OK in 8512ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 143384)
+
+
+Started GET "/weather?city=Brazil" for ::1 at 2024-04-28 19:39:30 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Brazil"}
+Completed 200 OK in 3736ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 83007)
+
+
+Started GET "/weather?city=Nagpur" for ::1 at 2024-04-28 19:40:26 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Nagpur"}
+Completed 200 OK in 3962ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 82685)
+
+
+Started GET "/weather" for ::1 at 2024-04-28 19:42:25 +0530
+Processing by WeatherController#index as */*
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 146)
+
+
+Started GET "/weather?city=Nagpurks" for ::1 at 2024-04-28 19:42:33 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Nagpurks"}
+Completed 404 Not Found in 3041ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1091)
+
+
+Started GET "/weather?city=kamptee" for ::1 at 2024-04-28 19:42:47 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"kamptee"}
+Completed 200 OK in 4457ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 853)
+
+
+Started GET "/weather?city=Brazil" for ::1 at 2024-04-28 19:43:55 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Brazil"}
+[dotenv] Set [36mOPENWEATHERMAP_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/weather?city=Brazil" for ::1 at 2024-04-28 19:44:33 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Brazil"}
+Completed 200 OK in 2975ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 20833)
+
+
+Started GET "/weather?city=London" for ::1 at 2024-04-28 19:45:04 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London"}
+Completed 200 OK in 2980ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 850)
+
+
+Started GET "/weather?city=London" for ::1 at 2024-04-28 19:46:17 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London"}
+Completed 200 OK in 1667ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 843)
+
+
+Started GET "/weather?city=London" for ::1 at 2024-04-28 19:57:22 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London"}
+Completed 500 Internal Server Error in 3055ms (ActiveRecord: 0.0ms | Allocations: 2773)
+
+
+  
+NameError (undefined local variable or method `parsed_response' for WeatherService:Class):
+  
+app/services/weather_service.rb:9:in `fetch_weather'
+app/controllers/weather_controller.rb:6:in `index'
+Started GET "/weather?city=London" for ::1 at 2024-04-28 19:58:00 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London"}
+Completed 500 Internal Server Error in 2938ms (ActiveRecord: 0.0ms | Allocations: 1128)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/services/weather_service.rb:6:in `fetch_weather'
+app/services/weather_service.rb:9:in `fetch_weather'
+app/controllers/weather_controller.rb:6:in `index'
+Started GET "/weather?city=London" for ::1 at 2024-04-28 20:00:05 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London"}
+Completed 200 OK in 3284ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 1196)
+
+
+Started GET "/weather?city=London" for ::1 at 2024-04-28 20:01:01 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London"}
+Completed 200 OK in 3566ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1207)
+
+
+Started GET "/weather?city=London" for ::1 at 2024-04-28 20:01:18 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London"}
+Completed 200 OK in 3324ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1200)
+
+
+Started GET "/weather?city=London" for ::1 at 2024-04-28 20:01:31 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London"}
+Completed 200 OK in 3862ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1207)
+
+
+Started GET "/weather?city=London&state=maharshtra" for ::1 at 2024-04-28 20:09:04 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London", "state"=>"maharshtra"}
+Completed 200 OK in 1739ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1381)
+
+
+Started GET "/weather?city=London&state=maharshtra" for ::1 at 2024-04-28 20:09:49 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London", "state"=>"maharshtra"}
+Completed 200 OK in 3081ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1202)
+
+
+Started GET "/weather?state=maharshtra" for ::1 at 2024-04-28 20:09:59 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"state"=>"maharshtra"}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 76)
+
+
+Started GET "/weather?city=maharshtra" for ::1 at 2024-04-28 20:10:25 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"maharshtra"}
+Completed 404 Not Found in 1842ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 809)
+
+
+Started GET "/weather?city=Maharshtra" for ::1 at 2024-04-28 20:10:35 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Maharshtra"}
+Completed 404 Not Found in 3154ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 788)
+
+
+Started GET "/weather?city=Maharashtra" for ::1 at 2024-04-28 20:10:43 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Maharashtra"}
+Completed 200 OK in 3167ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 841)
+
+
+Started GET "/weather?city=Maharashtra" for ::1 at 2024-04-28 20:15:40 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Maharashtra"}
+Completed 200 OK in 5247ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 843)
+
+
+Started GET "/weather?city=Nagpur&state=Maharashtra&country=India" for ::1 at 2024-04-28 20:23:32 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Nagpur", "state"=>"Maharashtra", "country"=>"India", "weather"=>{}}
+Completed 200 OK in 1372ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1146)
+
+
+Started GET "/weather?country=India" for ::1 at 2024-04-28 20:23:43 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"country"=>"India", "weather"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 72)
+
+
+Started GET "/weather?country=India" for ::1 at 2024-04-28 20:24:34 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"country"=>"India", "weather"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 140)
+
+
+Started GET "/weather?country=India" for ::1 at 2024-04-28 20:25:29 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"country"=>"India", "weather"=>{}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 140)
+
+
+Started GET "/weather?country=India" for ::1 at 2024-04-28 20:26:07 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"country"=>"India", "weather"=>{}}
+Completed 500 Internal Server Error in 1433ms (ActiveRecord: 0.0ms | Allocations: 1640)
+
+
+  
+NoMethodError (undefined method `map' for nil:NilClass):
+  
+app/services/weather_service.rb:12:in `fetch_countries'
+app/services/weather_service.rb:42:in `fetch_weather'
+app/controllers/weather_controller.rb:10:in `index'
+Started GET "/weather?country=India" for ::1 at 2024-04-28 20:27:29 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"country"=>"India", "weather"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 140)
+
+
+Started GET "/weather?city=Nagpur" for ::1 at 2024-04-28 20:27:40 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Nagpur", "weather"=>{}}
+Completed 200 OK in 1917ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1129)
+
+
+Started GET "/weather?city=Nagpur" for ::1 at 2024-04-28 20:28:47 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Nagpur", "weather"=>{}}
+Completed 200 OK in 5385ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1158)
+
+
+Started GET "/weather?state=Maharashtra" for ::1 at 2024-04-28 20:28:59 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"state"=>"Maharashtra", "weather"=>{}}
+Completed 404 Not Found in 3053ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 812)
+
+
+Started GET "/weather?state=Maharashtra" for ::1 at 2024-04-28 20:30:05 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"state"=>"Maharashtra", "weather"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 353)
+
+
+  
+ArgumentError (wrong number of arguments (given 3, expected 1)):
+  
+app/services/weather_service.rb:6:in `fetch_weather'
+app/controllers/weather_controller.rb:8:in `index'
+Started GET "/weather?state=Maharashtra" for ::1 at 2024-04-28 20:31:45 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"state"=>"Maharashtra", "weather"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 353)
+
+
+  
+ArgumentError (wrong number of arguments (given 3, expected 1)):
+  
+app/services/weather_service.rb:6:in `fetch_weather'
+app/controllers/weather_controller.rb:8:in `index'
+Started GET "/weather?state=Maharashtra" for ::1 at 2024-04-28 20:32:14 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"state"=>"Maharashtra", "weather"=>{}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1270)
+
+
+  
+NoMethodError (undefined method `encode' for URI:Module):
+  
+app/services/weather_service.rb:11:in `fetch_weather'
+app/controllers/weather_controller.rb:8:in `index'
+Started GET "/weather?state=Maharashtra" for ::1 at 2024-04-28 20:33:17 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"state"=>"Maharashtra", "weather"=>{}}
+Completed 200 OK in 2853ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1238)
+
+
+Started GET "/weather?city=Nagpur" for ::1 at 2024-04-28 20:33:34 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Nagpur", "weather"=>{}}
+Completed 200 OK in 2084ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 839)
+
+
+Started GET "/weather?country=India" for ::1 at 2024-04-28 20:33:47 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"country"=>"India", "weather"=>{}}
+Completed 200 OK in 2719ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 844)
+
+
+Started GET "/weather?country=India" for ::1 at 2024-04-28 20:35:48 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"country"=>"India", "weather"=>{}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1871)
+
+
+  
+NoMethodError (undefined method `encode_component' for WeatherService:Class):
+  
+app/services/weather_service.rb:7:in `fetch_weather'
+app/controllers/weather_controller.rb:8:in `index'
+Started GET "/weather?country=India" for ::1 at 2024-04-28 20:36:40 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"country"=>"India", "weather"=>{}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 467)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/services/weather_service.rb:29:in `escape'
+app/services/weather_service.rb:29:in `encode_component'
+app/services/weather_service.rb:6:in `fetch_weather'
+app/controllers/weather_controller.rb:8:in `index'
+Started GET "/weather?country=India" for ::1 at 2024-04-28 20:37:10 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"country"=>"India", "weather"=>{}}
+Completed 200 OK in 2830ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1275)
+
+
+Started GET "/weather?country=India" for ::1 at 2024-04-28 20:37:54 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"country"=>"India", "weather"=>{}}
+Completed 200 OK in 3304ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1268)
+
+
+Started GET "/weather?city=Nagpur" for ::1 at 2024-04-28 20:39:13 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Nagpur", "weather"=>{}}
+Completed 200 OK in 2695ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1195)
+
+
+Started GET "/weather?city=Nagpur" for ::1 at 2024-04-28 20:45:14 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"Nagpur", "weather"=>{}}
+Completed 200 OK in 1580ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1145)
+
+
+Started GET "/weather?state=Maharashtra" for ::1 at 2024-04-28 20:45:22 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"state"=>"Maharashtra", "weather"=>{}}
+Completed 200 OK in 3168ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 838)
+
+
+Started GET "/weather" for ::1 at 2024-04-28 20:45:38 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"weather"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 72)
+
+
+Started GET "/weather?city=London" for ::1 at 2024-04-28 20:46:20 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London", "weather"=>{}}
+Completed 200 OK in 3287ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1139)
+
+
+Started GET "/weather?city=London" for ::1 at 2024-04-28 20:47:07 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"London", "weather"=>{}}
+Completed 200 OK in 2366ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1194)
+
+
+Started GET "/weather?state=London" for ::1 at 2024-04-28 20:47:26 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"state"=>"London", "weather"=>{}}
+Completed 200 OK in 2818ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 837)
+
+
+Started GET "/weather?country=London" for ::1 at 2024-04-28 20:47:45 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"country"=>"London", "weather"=>{}}
+Completed 200 OK in 6534ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 853)
+
+
+[dotenv] Set [36mOPENWEATHERMAP_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/weather?city=mumbai" for ::1 at 2024-04-29 19:07:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"mumbai", "weather"=>{}}
+Completed 200 OK in 568ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 20899)
+
+
+Started GET "/weather?city=mumbai" for ::1 at 2024-04-29 19:09:17 +0530
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"mumbai", "weather"=>{}}
+Completed 200 OK in 321ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 835)
+
+
+[dotenv] Set [36mOPENWEATHERMAP_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/weather?city=kolkata" for ::1 at 2024-04-29 19:10:54 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WeatherController#index as */*
+  Parameters: {"city"=>"kolkata", "weather"=>{}}
+Completed 200 OK in 344ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 20842)
+
+

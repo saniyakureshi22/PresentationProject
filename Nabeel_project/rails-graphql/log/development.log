@@ -1,0 +1,1084 @@
+  [1m[35m (7633.1ms)[0m  [1m[35mCREATE DATABASE "rails_graphql_development" ENCODING = 'unicode'[0m
+  [1m[35m (7255.5ms)[0m  [1m[35mCREATE DATABASE "rails_graphql_test" ENCODING = 'unicode'[0m
+  [1m[35m (69.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (28.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8793404293349262930)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (24.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-04-28 12:11:51.095250', '2024-04-28 12:11:51.095254') RETURNING "key"[0m
+Migrating to CreateUsers (20240428120944)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240428120944') RETURNING "version"[0m
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBlogs (20240428120947)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (28.1ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" bigserial primary key, "title" character varying, "description" text, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_40ebb3948d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE INDEX "index_blogs_on_user_id" ON "blogs" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240428120947') RETURNING "version"[0m
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8793404293349262930)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "rails_graphql_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "rails_graphql_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8793404293349262930)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8793404293349262930)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "rails_graphql_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE DATABASE "rails_graphql_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8793404293349262930)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8793404293349262930)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Howard"], ["last_name", "Huel"], ["email", "evie@test.com"], ["created_at", "2024-04-28 12:13:03.967325"], ["updated_at", "2024-04-28 12:13:03.967325"]]
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Lela"], ["last_name", "Hills"], ["email", "robin@test.com"], ["created_at", "2024-04-28 12:13:03.982154"], ["updated_at", "2024-04-28 12:13:03.982154"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Arcelia"], ["last_name", "Ritchie"], ["email", "floria@test.com"], ["created_at", "2024-04-28 12:13:03.993169"], ["updated_at", "2024-04-28 12:13:03.993169"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Elmira"], ["last_name", "Huels"], ["email", "lamont@test.com"], ["created_at", "2024-04-28 12:13:04.004609"], ["updated_at", "2024-04-28 12:13:04.004609"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Stan"], ["last_name", "Stehr"], ["email", "elayne@test.com"], ["created_at", "2024-04-28 12:13:04.015873"], ["updated_at", "2024-04-28 12:13:04.015873"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The Proper Study"], ["description", "[\"Doloremque dolorum at. Nam alias beatae. Ex sed sunt.\", \"Repellat nihil dolor. Cumque hic officia. Sint quod nulla.\", \"Voluptatem eum ut. Minima numquam ullam. Voluptas reprehenderit quia.\"]"], ["user_id", 5], ["created_at", "2024-04-28 12:13:04.072249"], ["updated_at", "2024-04-28 12:13:04.072249"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.6ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Have His Carcase"], ["description", "[\"Molestiae voluptas temporibus. Tempore rem nobis. Minus tenetur error.\", \"Ea sunt quo. Rerum quia quis. Tempora est quod.\", \"In quam aspernatur. Impedit iusto qui. Ipsa quam sint.\"]"], ["user_id", 2], ["created_at", "2024-04-28 12:13:04.086375"], ["updated_at", "2024-04-28 12:13:04.086375"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "East of Eden"], ["description", "[\"Omnis consequatur explicabo. Temporibus quaerat veritatis. Aut totam ea.\", \"Nobis architecto esse. Ducimus sit ab. Et facere ea.\", \"Neque esse nobis. Sunt ipsum repellendus. Aspernatur nam nesciunt.\"]"], ["user_id", 4], ["created_at", "2024-04-28 12:13:04.099817"], ["updated_at", "2024-04-28 12:13:04.099817"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "That Good Night"], ["description", "[\"Ducimus voluptatum iste. Eveniet atque quod. Molestias tempore autem.\", \"Accusamus repellendus inventore. Beatae dignissimos hic. Est deleniti quidem.\", \"Sapiente ut magnam. Animi commodi nemo. Tempora officiis culpa.\"]"], ["user_id", 2], ["created_at", "2024-04-28 12:13:04.112371"], ["updated_at", "2024-04-28 12:13:04.112371"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.9ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Carrion Comfort"], ["description", "[\"Velit nisi iure. Fugit ad ipsum. Aut repellendus occaecati.\", \"Quidem quo et. Aut exercitationem enim. Consequatur tempora maxime.\", \"Est est odit. Ut similique ducimus. Dolorem consequatur vero.\"]"], ["user_id", 3], ["created_at", "2024-04-28 12:13:04.127055"], ["updated_at", "2024-04-28 12:13:04.127055"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.8ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Bury My Heart at Wounded Knee"], ["description", "[\"Consectetur sunt velit. Officiis dolorem quisquam. Tempore neque aut.\", \"A quo voluptatem. Accusamus nam sapiente. Mollitia cumque ab.\", \"Doloribus inventore dolorem. Earum sequi blanditiis. Sit sint modi.\"]"], ["user_id", 1], ["created_at", "2024-04-28 12:13:04.142559"], ["updated_at", "2024-04-28 12:13:04.142559"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.6ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "All the King's Men"], ["description", "[\"Minima omnis aut. Minima ratione quis. Omnis eaque magnam.\", \"Nisi rerum in. Officia unde vel. Exercitationem dolorem reprehenderit.\", \"Natus qui et. Suscipit eum nostrum. Enim dolore ad.\"]"], ["user_id", 4], ["created_at", "2024-04-28 12:13:04.156542"], ["updated_at", "2024-04-28 12:13:04.156542"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.6ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Time of our Darkness"], ["description", "[\"Molestiae unde voluptas. Explicabo enim nesciunt. Exercitationem ut alias.\", \"Dolor maxime commodi. Cupiditate praesentium commodi. Ipsum autem et.\", \"Ut aut minima. Est qui placeat. Aliquid facilis omnis.\"]"], ["user_id", 2], ["created_at", "2024-04-28 12:13:04.170712"], ["updated_at", "2024-04-28 12:13:04.170712"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.8ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "From Here to Eternity"], ["description", "[\"Minus vitae et. A odio animi. Voluptatum et doloribus.\", \"In saepe quo. Amet velit voluptatem. Soluta libero animi.\", \"Iusto excepturi pariatur. Tempora eos dolor. Velit quas neque.\"]"], ["user_id", 1], ["created_at", "2024-04-28 12:13:04.186405"], ["updated_at", "2024-04-28 12:13:04.186405"]]
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.6ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "I Sing the Body Electric"], ["description", "[\"Nihil dicta reprehenderit. Sit eum non. Totam inventore sed.\", \"Inventore repudiandae dolores. Dolorem repellendus consequuntur. Omnis tempora qui.\", \"Sint sit laboriosam. Velit illo esse. Repudiandae illum laboriosam.\"]"], ["user_id", 2], ["created_at", "2024-04-28 12:13:04.201225"], ["updated_at", "2024-04-28 12:13:04.201225"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.7ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "In Death Ground"], ["description", "[\"Modi optio nostrum. Veniam consequatur impedit. Esse placeat hic.\", \"Sed possimus voluptas. Sed ipsa sapiente. Cum qui dolorem.\", \"Pariatur nihil voluptatem. Illo est tempora. Et eos corrupti.\"]"], ["user_id", 4], ["created_at", "2024-04-28 12:13:04.216400"], ["updated_at", "2024-04-28 12:13:04.216400"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "All the King's Men"], ["description", "[\"Id cupiditate architecto. Eveniet rerum et. Praesentium fugit pariatur.\", \"Earum repellendus debitis. Iste repudiandae et. Aut placeat rerum.\", \"Reprehenderit quae in. Nobis temporibus quod. Exercitationem et totam.\"]"], ["user_id", 3], ["created_at", "2024-04-28 12:13:04.230262"], ["updated_at", "2024-04-28 12:13:04.230262"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Blood's a Rover"], ["description", "[\"Quae sunt voluptas. Exercitationem ex nihil. Illum est libero.\", \"Cum quia ipsam. Eius voluptatibus impedit. Consequatur repudiandae suscipit.\", \"Accusantium numquam et. Odit dignissimos tenetur. Quasi ut consectetur.\"]"], ["user_id", 2], ["created_at", "2024-04-28 12:13:04.243472"], ["updated_at", "2024-04-28 12:13:04.243472"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The Glory and the Dream"], ["description", "[\"Dolorem amet ut. Aut rem quia. Excepturi ut consequatur.\", \"Rem illum minima. Porro debitis vel. Doloribus delectus mollitia.\", \"Unde numquam et. Hic est qui. Voluptatem sequi est.\"]"], ["user_id", 3], ["created_at", "2024-04-28 12:13:04.256374"], ["updated_at", "2024-04-28 12:13:04.256374"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.6ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Stranger in a Strange Land"], ["description", "[\"Pariatur enim molestiae. Ut dolor delectus. Et quia rerum.\", \"Aperiam nihil optio. Consequatur voluptatem corporis. Rem sunt minus.\", \"Rem assumenda ipsa. Expedita et nemo. Facilis hic tempora.\"]"], ["user_id", 3], ["created_at", "2024-04-28 12:13:04.269266"], ["updated_at", "2024-04-28 12:13:04.269266"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.8ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "As I Lay Dying"], ["description", "[\"Nesciunt sapiente delectus. Quia est et. Aut praesentium nihil.\", \"Consequuntur nihil vel. Qui dicta iste. Ex mollitia quisquam.\", \"Consequatur harum tempora. Ut dolores est. Accusamus temporibus a.\"]"], ["user_id", 1], ["created_at", "2024-04-28 12:13:04.283939"], ["updated_at", "2024-04-28 12:13:04.283939"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.6ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Unweaving the Rainbow"], ["description", "[\"Voluptatem ea sed. Illum fuga quo. Qui dolorem ut.\", \"Qui modi nostrum. Consequatur est voluptatem. Ipsam voluptatibus perspiciatis.\", \"Aspernatur velit corrupti. Nobis reiciendis mollitia. Nisi deserunt dicta.\"]"], ["user_id", 3], ["created_at", "2024-04-28 12:13:04.299131"], ["updated_at", "2024-04-28 12:13:04.299131"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.6ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The Painted Veil"], ["description", "[\"Pariatur illo voluptas. Veniam ut numquam. Ducimus velit minus.\", \"Voluptas placeat officia. Voluptas consequatur veniam. Sunt est temporibus.\", \"Fugiat dolor culpa. Cum molestiae natus. Velit explicabo sed.\"]"], ["user_id", 1], ["created_at", "2024-04-28 12:13:04.312688"], ["updated_at", "2024-04-28 12:13:04.312688"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.7ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "A Swiftly Tilting Planet"], ["description", "[\"Incidunt molestiae porro. Velit error maxime. Porro nisi provident.\", \"Sunt illo doloribus. Sit illum quia. Qui soluta aliquam.\", \"Delectus qui dolor. Omnis impedit vero. Possimus consequatur quis.\"]"], ["user_id", 2], ["created_at", "2024-04-28 12:13:04.327261"], ["updated_at", "2024-04-28 12:13:04.327261"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Ids (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.7ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Jesting Pilate"], ["description", "[\"Maxime autem recusandae. Temporibus molestiae aperiam. Dolorem maxime sed.\", \"Qui enim aut. Quo maiores quia. Qui et nulla.\", \"Labore sequi neque. Nemo debitis distinctio. Recusandae eos delectus.\"]"], ["user_id", 1], ["created_at", "2024-04-28 12:13:04.342189"], ["updated_at", "2024-04-28 12:13:04.342189"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2024-04-28 17:46:34 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | Allocations: 525)
+Completed 200 OK in 296ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 287353)
+
+
+Started GET "/graphql" for ::1 at 2024-04-28 17:46:43 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/graphql"):
+  
+Started GET "/graphql" for ::1 at 2024-04-28 17:46:52 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/graphql"):
+  
+Started GET "/" for ::1 at 2024-04-28 17:49:52 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 525)
+Completed 200 OK in 172ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 285489)
+
+
+Started GET "/graphiql" for ::1 at 2024-04-28 17:49:57 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/graphiql"):
+  
+Started GET "/graphql" for ::1 at 2024-04-28 17:50:03 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/graphql"):
+  
+Started GET "/rails/info/routes?query=graphql" for ::1 at 2024-04-28 17:50:13 +0530
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"query"=>"graphql"}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 6701)
+
+
+Started GET "/rails/info/routes?query=graphql" for ::1 at 2024-04-28 17:50:13 +0530
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"query"=>"graphql"}
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 5725)
+
+
+Started GET "/graphql" for ::1 at 2024-04-28 17:50:21 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/graphql"):
+  
+Started GET "/" for ::1 at 2024-04-28 17:51:19 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 525)
+Completed 200 OK in 173ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 285487)
+
+
+Started GET "/graphiql" for ::1 at 2024-04-28 17:51:24 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 3.8ms | Allocations: 1828)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 3676)
+
+
+  
+ActionView::Template::Error (GraphiQL::Rails requires either Propshaft or Sprockets. Use `$ bundle add propshaft` or `$ bundle add sprockets-rails` to add one of them to your app.):
+    13:         <%= stylesheet_link_tag("graphiql/rails/application") %>
+    14:         <%= javascript_include_tag("graphiql/rails/application", nonce: true )  %>
+    15:       <% else %>
+    16:         <% raise "GraphiQL::Rails requires either Propshaft or Sprockets. Use `$ bundle add propshaft` or `$ bundle add sprockets-rails` to add one of them to your app." %>
+    17:       <% end %>
+    18:   </head>
+    19:   <body>
+  
+graphiql-rails (1.10.0) app/views/graphiql/rails/editors/show.html.erb:16
+actionview (7.1.3.2) lib/action_view/base.rb:264:in `public_send'
+actionview (7.1.3.2) lib/action_view/base.rb:264:in `_run'
+actionview (7.1.3.2) lib/action_view/template.rb:261:in `block in render'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:208:in `instrument'
+actionview (7.1.3.2) lib/action_view/template.rb:549:in `instrument_render_template'
+actionview (7.1.3.2) lib/action_view/template.rb:249:in `render'
+actionview (7.1.3.2) lib/action_view/renderer/template_renderer.rb:66:in `block (2 levels) in render_template'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.1.3.2) lib/action_view/renderer/template_renderer.rb:60:in `block in render_template'
+actionview (7.1.3.2) lib/action_view/renderer/template_renderer.rb:80:in `render_with_layout'
+actionview (7.1.3.2) lib/action_view/renderer/template_renderer.rb:59:in `render_template'
+actionview (7.1.3.2) lib/action_view/renderer/template_renderer.rb:11:in `render'
+actionview (7.1.3.2) lib/action_view/renderer/renderer.rb:63:in `render_template_to_object'
+actionview (7.1.3.2) lib/action_view/renderer/renderer.rb:31:in `render_to_object'
+actionview (7.1.3.2) lib/action_view/rendering.rb:135:in `block in _render_template'
+actionview (7.1.3.2) lib/action_view/base.rb:291:in `in_rendering_context'
+actionview (7.1.3.2) lib/action_view/rendering.rb:134:in `_render_template'
+actionpack (7.1.3.2) lib/action_controller/metal/streaming.rb:256:in `_render_template'
+actionview (7.1.3.2) lib/action_view/rendering.rb:121:in `render_to_body'
+actionpack (7.1.3.2) lib/action_controller/metal/rendering.rb:158:in `render_to_body'
+actionpack (7.1.3.2) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (7.1.3.2) lib/abstract_controller/rendering.rb:27:in `render'
+actionpack (7.1.3.2) lib/action_controller/metal/rendering.rb:139:in `render'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:29:in `block (2 levels) in render'
+/usr/share/rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0/benchmark.rb:308:in `realtime'
+activesupport (7.1.3.2) lib/active_support/core_ext/benchmark.rb:14:in `ms'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:29:in `block in render'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:98:in `cleanup_view_runtime'
+activerecord (7.1.3.2) lib/active_record/railties/controller_runtime.rb:39:in `cleanup_view_runtime'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:28:in `render'
+actionpack (7.1.3.2) lib/action_controller/metal/implicit_render.rb:37:in `default_render'
+actionpack (7.1.3.2) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+actiontext (7.1.3.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+railties (7.1.3.2) lib/rails/railtie.rb:226:in `public_send'
+railties (7.1.3.2) lib/rails/railtie.rb:226:in `method_missing'
+actionpack (7.1.3.2) lib/action_dispatch/routing/mapper.rb:22:in `block in <class:Constraints>'
+actionpack (7.1.3.2) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.10) lib/rack/etag.rb:29:in `call'
+rack (3.0.10) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.10) lib/rack/head.rb:15:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-04-28 17:54:06 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 525)
+Completed 200 OK in 198ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 285875)
+
+
+Started GET "/graphiql" for ::1 at 2024-04-28 17:54:18 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 42.3ms | Allocations: 5687)
+Completed 200 OK in 55ms (Views: 43.8ms | ActiveRecord: 0.0ms | Allocations: 7618)
+
+
+Started GET "/assets/graphiql/rails/graphiql-3.1.1-119fc4490b4a4f777823ceaa250260dce04dd163.css" for ::1 at 2024-04-28 17:54:18 +0530
+Started GET "/assets/graphiql/rails/application-17f6a9d2ecb36a5eb6d01e93e3c0fc0a619c55df.css" for ::1 at 2024-04-28 17:54:18 +0530
+Started GET "/assets/graphiql/rails/react-18.2.0-863952967a385ddf66b3a8f40ea65f88c18a8185.js" for ::1 at 2024-04-28 17:54:18 +0530
+Removed sourceMappingURL comment for missing asset 'graphiql/rails/graphiql.min.css.map' from graphiql/rails/graphiql.min.css.map
+Started GET "/assets/graphiql/rails/react-dom-18.2.0-f959a5e301b11371d88fe22a0b4b74f1f547ba67.js" for ::1 at 2024-04-28 17:54:18 +0530
+Started GET "/assets/graphiql/rails/graphiql-3.1.1-1f962b1ddd9fb373cb9e251ae503ca23fdf06930.js" for ::1 at 2024-04-28 17:54:18 +0530
+Removed sourceMappingURL comment for missing asset 'graphiql/rails/graphiql.min.js.map' from graphiql/rails/graphiql.min.js.map
+Started GET "/assets/graphiql/rails/graphiql_show-95934f98a5d3f72144a8680bf7c22278f35ae5ef.js" for ::1 at 2024-04-28 17:54:19 +0530
+Started POST "/graphql" for ::1 at 2024-04-28 17:54:19 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 36ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 12044)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:54:40 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  testField\n}", "graphql"=>{"query"=>"{\n  testField\n}"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 415)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:57:27 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blog{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blog{\n    id\n    userName\n  }\n}"}}
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 3366)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:57:34 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 443)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:57:35 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:57:35 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 424)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:57:35 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 424)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:57:36 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 424)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:57:36 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 424)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:57:36 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 424)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:57:36 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 424)
+
+
+Started GET "/" for ::1 at 2024-04-28 17:58:38 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 525)
+Completed 200 OK in 186ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 285857)
+
+
+Started GET "/graphiql" for ::1 at 2024-04-28 17:58:42 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 21.2ms | Allocations: 5687)
+Completed 200 OK in 34ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 7618)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:58:42 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 43ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 12898)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:58:54 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 454)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 17:59:10 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    title\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    title\n  }\n}"}}
+  [1m[36mBlog Load (0.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+Completed 200 OK in 88ms (Views: 0.2ms | ActiveRecord: 11.5ms | Allocations: 103948)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 18:00:24 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    titledescription\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    titledescription\n  }\n}"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 426)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 18:00:30 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    title\n    description\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    title\n    description\n  }\n}"}}
+  [1m[36mBlog Load (2.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.7ms | Allocations: 1598)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 18:01:05 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    title\n    description\n    userId\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    title\n    description\n    userId\n  }\n}"}}
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 1656)
+
+
+Started GET "/graphiql" for ::1 at 2024-04-28 18:04:16 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 2.8ms | Allocations: 945)
+Completed 200 OK in 13ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 2299)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 18:04:16 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 41ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 10914)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 18:04:54 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    title\n    description\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    title\n    description\n    userName\n  }\n}"}}
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+Completed 200 OK in 86ms (Views: 0.3ms | ActiveRecord: 8.0ms | Allocations: 62895)
+
+
+Started GET "/graphiql" for ::1 at 2024-04-28 18:08:15 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 2.3ms | Allocations: 499)
+Completed 200 OK in 15ms (Views: 3.1ms | ActiveRecord: 0.0ms | Allocations: 855)
+
+
+Started GET "/assets/graphiql/rails/graphiql-3.1.1-119fc4490b4a4f777823ceaa250260dce04dd163.css" for ::1 at 2024-04-28 18:08:16 +0530
+Started GET "/assets/graphiql/rails/application-17f6a9d2ecb36a5eb6d01e93e3c0fc0a619c55df.css" for ::1 at 2024-04-28 18:08:16 +0530
+Started GET "/assets/graphiql/rails/react-dom-18.2.0-f959a5e301b11371d88fe22a0b4b74f1f547ba67.js" for ::1 at 2024-04-28 18:08:16 +0530
+Started GET "/assets/graphiql/rails/react-18.2.0-863952967a385ddf66b3a8f40ea65f88c18a8185.js" for ::1 at 2024-04-28 18:08:16 +0530
+Started GET "/assets/graphiql/rails/graphiql-3.1.1-1f962b1ddd9fb373cb9e251ae503ca23fdf06930.js" for ::1 at 2024-04-28 18:08:16 +0530
+Removed sourceMappingURL comment for missing asset 'graphiql/rails/graphiql.min.js.map' from graphiql/rails/graphiql.min.js.map
+Removed sourceMappingURL comment for missing asset 'graphiql/rails/graphiql.min.css.map' from graphiql/rails/graphiql.min.css.map
+Started GET "/assets/graphiql/rails/graphiql_show-95934f98a5d3f72144a8680bf7c22278f35ae5ef.js" for ::1 at 2024-04-28 18:08:16 +0530
+Started POST "/graphql" for ::1 at 2024-04-28 18:08:16 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 43ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 7865)
+
+
+Started GET "/favicon.ico" for ::1 at 2024-04-28 18:08:16 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/graphql" for ::1 at 2024-04-28 18:08:29 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+  [1m[36mBlog Load (0.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 12021)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 18:13:37 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}"}}
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 12136)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 18:13:39 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}"}}
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 12127)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 18:13:39 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}"}}
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 12127)
+
+
+Started POST "/graphql" for ::1 at 2024-04-28 18:13:39 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}"}}
+  [1m[36mBlog Load (1.9ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+Completed 200 OK in 34ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 12127)
+
+
+Started GET "/" for ::1 at 2024-04-29 19:13:51 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | Allocations: 525)
+Completed 200 OK in 333ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 285857)
+
+
+Started GET "/graphiql" for ::1 at 2024-04-29 19:13:55 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 43.0ms | Allocations: 5687)
+Completed 200 OK in 59ms (Views: 44.4ms | ActiveRecord: 0.0ms | Allocations: 7618)
+
+
+Started POST "/graphql" for ::1 at 2024-04-29 19:13:55 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 42ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 12666)
+
+
+Started GET "/favicon.ico" for ::1 at 2024-04-29 19:13:56 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/graphql" for ::1 at 2024-04-29 19:13:58 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}"}}
+  [1m[36mBlog Load (7.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+Completed 200 OK in 188ms (Views: 0.2ms | ActiveRecord: 38.8ms | Allocations: 158504)
+
+
+Started POST "/graphql" for ::1 at 2024-04-29 19:14:08 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 12034)
+
+
+Started GET "/" for ::1 at 2024-04-29 19:47:09 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.0.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 525)
+Completed 200 OK in 244ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 285856)
+
+
+Started POST "/graphql" for ::1 at 2024-04-29 19:47:20 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n    description\n  }\n}"}}
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+Completed 200 OK in 173ms (Views: 0.3ms | ActiveRecord: 21.1ms | Allocations: 161702)
+
+
+Started POST "/graphql" for ::1 at 2024-04-29 19:47:25 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n    userName\n  }\n}"}}
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+Completed 200 OK in 46ms (Views: 0.2ms | ActiveRecord: 3.8ms | Allocations: 12034)
+
+
+Started POST "/graphql" for ::1 at 2024-04-29 19:47:30 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    userName\n  }\n}"}}
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/types/blog_type.rb:11:in `user_name'
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 11956)
+
+
