@@ -1,0 +1,230 @@
+  [1m[35m (22.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (18.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20240430100724)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240430100724"]]
+  [1m[36mTRANSACTION (18.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBlogs (20240430100733)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_40ebb3948d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_blogs_on_user_id" ON "blogs" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240430100733"]]
+  [1m[36mTRANSACTION (17.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-04-30 10:13:53.718895"], ["updated_at", "2024-04-30 10:13:53.718895"]]
+  [1m[36mTRANSACTION (16.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Tran"], ["last_name", "McCullough"], ["email", "tran@test.com"], ["created_at", "2024-04-30 10:13:54.647225"], ["updated_at", "2024-04-30 10:13:54.647225"]]
+  [1m[36mTRANSACTION (20.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Alan"], ["last_name", "Murray"], ["email", "alan@test.com"], ["created_at", "2024-04-30 10:13:54.670788"], ["updated_at", "2024-04-30 10:13:54.670788"]]
+  [1m[36mTRANSACTION (16.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Georgina"], ["last_name", "Heidenreich"], ["email", "georgina@test.com"], ["created_at", "2024-04-30 10:13:54.691360"], ["updated_at", "2024-04-30 10:13:54.691360"]]
+  [1m[36mTRANSACTION (16.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Benny"], ["last_name", "Murray"], ["email", "benny@test.com"], ["created_at", "2024-04-30 10:13:54.711906"], ["updated_at", "2024-04-30 10:13:54.711906"]]
+  [1m[36mTRANSACTION (15.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Ed"], ["last_name", "Tillman"], ["email", "ed@test.com"], ["created_at", "2024-04-30 10:13:54.732339"], ["updated_at", "2024-04-30 10:13:54.732339"]]
+  [1m[36mTRANSACTION (14.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.2ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Postern of Fate"], ["description", "[\"Aut nulla sequi. Alias voluptas qui. Quidem repellat non.\", \"Praesentium error non. Voluptas rerum libero. Voluptatibus nostrum ad.\", \"Et consectetur sint. Ullam mollitia maxime. Saepe harum adipisci.\"]"], ["user_id", 2], ["created_at", "2024-04-30 10:13:54.766524"], ["updated_at", "2024-04-30 10:13:54.766524"]]
+  [1m[36mTRANSACTION (17.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.2ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Edna O'Brien"], ["description", "[\"Exercitationem iure ipsam. Illum sed qui. Quis voluptatem unde.\", \"Provident aut officiis. Deleniti et magni. Beatae neque non.\", \"Nemo ea et. Vel rerum qui. Aut et enim.\"]"], ["user_id", 2], ["created_at", "2024-04-30 10:13:54.788989"], ["updated_at", "2024-04-30 10:13:54.788989"]]
+  [1m[36mTRANSACTION (14.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.2ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "The Cricket on the Hearth"], ["description", "[\"Vitae hic autem. Quos blanditiis et. Natus hic aliquid.\", \"Atque sed tempora. Est sapiente ut. Molestiae architecto quia.\", \"Omnis deleniti laborum. Nesciunt ex assumenda. Id hic necessitatibus.\"]"], ["user_id", 4], ["created_at", "2024-04-30 10:13:54.808908"], ["updated_at", "2024-04-30 10:13:54.808908"]]
+  [1m[36mTRANSACTION (23.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.2ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "That Good Night"], ["description", "[\"Natus qui molestiae. Veniam assumenda quisquam. Id voluptatibus quasi.\", \"A labore vel. Laudantium aliquid voluptas. Ea quos quo.\", \"Quos non modi. Eum quos perspiciatis. Iure est enim.\"]"], ["user_id", 5], ["created_at", "2024-04-30 10:13:54.838024"], ["updated_at", "2024-04-30 10:13:54.838024"]]
+  [1m[36mTRANSACTION (14.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "The Way Through the Woods"], ["description", "[\"Quam ad incidunt. Nobis ut ullam. Consequatur et adipisci.\", \"Aut hic commodi. Earum et vero. Quia corrupti cum.\", \"Dignissimos et non. Eos et id. Saepe unde rerum.\"]"], ["user_id", 2], ["created_at", "2024-04-30 10:13:54.861198"], ["updated_at", "2024-04-30 10:13:54.861198"]]
+  [1m[36mTRANSACTION (14.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Sleep the Brave"], ["description", "[\"Dolor quae a. In rerum vel. Enim velit qui.\", \"Vel cumque expedita. Iusto est consequatur. Beatae veniam illo.\", \"Enim earum aut. Non qui sunt. Vel quia non.\"]"], ["user_id", 2], ["created_at", "2024-04-30 10:13:54.884417"], ["updated_at", "2024-04-30 10:13:54.884417"]]
+  [1m[36mTRANSACTION (15.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Edna O'Brien"], ["description", "[\"Fugit nemo earum. Ad voluptatem ut. Porro atque nisi.\", \"Ratione earum qui. Neque quia repellendus. Eligendi eum et.\", \"Esse consectetur perferendis. Fugit suscipit ipsa. Possimus dolor ut.\"]"], ["user_id", 5], ["created_at", "2024-04-30 10:13:54.908525"], ["updated_at", "2024-04-30 10:13:54.908525"]]
+  [1m[36mTRANSACTION (23.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dance Dance Dance"], ["description", "[\"Sed id labore. Est qui libero. Laudantium et nostrum.\", \"Quod quam voluptatem. Voluptatibus aut asperiores. Laudantium consequuntur sit.\", \"Est deserunt dolores. Neque ea dolor. Culpa voluptas asperiores.\"]"], ["user_id", 2], ["created_at", "2024-04-30 10:13:54.941001"], ["updated_at", "2024-04-30 10:13:54.941001"]]
+  [1m[36mTRANSACTION (15.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Bury My Heart at Wounded Knee"], ["description", "[\"Asperiores est et. Voluptatem eos numquam. Consequuntur et nihil.\", \"Dicta illo amet. Molestiae ea totam. Perspiciatis qui molestias.\", \"Voluptatem corrupti provident. Iure assumenda qui. Amet eum tenetur.\"]"], ["user_id", 4], ["created_at", "2024-04-30 10:13:54.965455"], ["updated_at", "2024-04-30 10:13:54.965455"]]
+  [1m[36mTRANSACTION (16.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "The Needle's Eye"], ["description", "[\"Reprehenderit iste dolores. Saepe ex rerum. Est consequatur excepturi.\", \"Sint est commodi. Aut quidem assumenda. Quas id quo.\", \"Eius praesentium dolores. Et animi ab. Modi ut magni.\"]"], ["user_id", 3], ["created_at", "2024-04-30 10:13:54.989997"], ["updated_at", "2024-04-30 10:13:54.989997"]]
+  [1m[36mTRANSACTION (14.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "To a God Unknown"], ["description", "[\"Qui quasi a. Quos provident est. Nesciunt voluptate fugiat.\", \"Voluptatem deleniti tempore. Nobis excepturi est. Voluptatem placeat sint.\", \"Enim nostrum totam. Quo qui et. Labore illum quia.\"]"], ["user_id", 1], ["created_at", "2024-04-30 10:13:55.012930"], ["updated_at", "2024-04-30 10:13:55.012930"]]
+  [1m[36mTRANSACTION (14.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.2ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Edna O'Brien"], ["description", "[\"Nisi libero fugiat. Vero accusamus excepturi. Porro quaerat modi.\", \"Iure consectetur enim. Modi illo minus. Numquam dolor ea.\", \"Facere saepe alias. Dolores iure rem. Qui qui quis.\"]"], ["user_id", 2], ["created_at", "2024-04-30 10:13:55.036199"], ["updated_at", "2024-04-30 10:13:55.036199"]]
+  [1m[36mTRANSACTION (17.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Ah, Wilderness!"], ["description", "[\"Laborum placeat et. Distinctio laboriosam iure. Ad ut exercitationem.\", \"Possimus qui et. Voluptates fuga animi. Ut dolorem quam.\", \"Quibusdam qui qui. Maxime voluptatibus qui. Quis ad autem.\"]"], ["user_id", 5], ["created_at", "2024-04-30 10:13:55.061221"], ["updated_at", "2024-04-30 10:13:55.061221"]]
+  [1m[36mTRANSACTION (15.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Blue Remembered Earth"], ["description", "[\"Quam non voluptates. Placeat est fuga. Est cum dolores.\", \"Numquam beatae quasi. Eius recusandae sed. Quibusdam est tempora.\", \"Quos dolore perferendis. Illo et voluptate. Laudantium alias doloribus.\"]"], ["user_id", 1], ["created_at", "2024-04-30 10:13:55.084524"], ["updated_at", "2024-04-30 10:13:55.084524"]]
+  [1m[36mTRANSACTION (15.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Jesting Pilate"], ["description", "[\"Sunt aut incidunt. Et quis accusantium. Magni omnis corrupti.\", \"Sed minus aliquam. Illo reprehenderit laborum. Pariatur aliquam ad.\", \"Deserunt atque quae. Cumque maiores soluta. Ratione dolorem ut.\"]"], ["user_id", 1], ["created_at", "2024-04-30 10:13:55.108031"], ["updated_at", "2024-04-30 10:13:55.108031"]]
+  [1m[36mTRANSACTION (19.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "No Country for Old Men"], ["description", "[\"Culpa enim dicta. Perspiciatis nobis placeat. Quibusdam culpa quae.\", \"Debitis non velit. Accusantium voluptas sit. Ad culpa esse.\", \"Eaque ipsa debitis. Fugiat nulla in. Autem suscipit quia.\"]"], ["user_id", 2], ["created_at", "2024-04-30 10:13:55.136475"], ["updated_at", "2024-04-30 10:13:55.136475"]]
+  [1m[36mTRANSACTION (13.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Those Barren Leaves, Thrones, Dominations"], ["description", "[\"Rem veniam qui. Dolor dolorum sunt. Autem accusamus laudantium.\", \"Delectus nisi aspernatur. Quidem numquam iure. Vel sequi ducimus.\", \"Sunt atque fuga. Non eos nam. Ut et cumque.\"]"], ["user_id", 5], ["created_at", "2024-04-30 10:13:55.159067"], ["updated_at", "2024-04-30 10:13:55.159067"]]
+  [1m[36mTRANSACTION (13.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.2ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Of Human Bondage"], ["description", "[\"Aut id voluptate. Ab aut omnis. Molestiae consequatur accusamus.\", \"Qui inventore tempore. Consequuntur voluptatem sit. Quo vel reprehenderit.\", \"Culpa ipsum aperiam. Provident occaecati tempore. Similique commodi molestias.\"]"], ["user_id", 5], ["created_at", "2024-04-30 10:13:55.179275"], ["updated_at", "2024-04-30 10:13:55.179275"]]
+  [1m[36mTRANSACTION (14.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.2ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time of Gifts"], ["description", "[\"Ut voluptas porro. Sint ducimus earum. Officiis porro ut.\", \"Consectetur ut qui. Dolores rem in. Sint et delectus.\", \"Veritatis rem sed. Quis voluptatem quia. Omnis a est.\"]"], ["user_id", 1], ["created_at", "2024-04-30 10:13:55.202590"], ["updated_at", "2024-04-30 10:13:55.202590"]]
+  [1m[36mTRANSACTION (20.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Clouds of Witness"], ["description", "[\"Iusto et esse. Quo asperiores reprehenderit. Ut pariatur cupiditate.\", \"Quod et blanditiis. Dicta iure rem. Laboriosam deserunt est.\", \"Ut illo sapiente. Est sed voluptas. Non sequi qui.\"]"], ["user_id", 5], ["created_at", "2024-04-30 10:13:55.231327"], ["updated_at", "2024-04-30 10:13:55.231327"]]
+  [1m[36mTRANSACTION (21.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/graphiql" for ::1 at 2024-04-30 16:22:54 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 995.9ms | Allocations: 168983)
+Completed 200 OK in 1204ms (Views: 999.6ms | ActiveRecord: 0.0ms | Allocations: 454896)
+
+
+Started POST "/graphql" for ::1 at 2024-04-30 16:22:55 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 43ms (Views: 5.7ms | ActiveRecord: 0.0ms | Allocations: 18458)
+
+
+Started POST "/graphql" for ::1 at 2024-04-30 16:22:59 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"# Welcome to GraphiQL\n#\n# GraphiQL is an in-browser tool for writing, validating, and\n# testing GraphQL queries.\n#\n# Type queries into this side of the screen, and you will see intelligent\n# typeaheads aware of the current GraphQL type schema and live syntax and\n# validation errors highlighted within the text.\n#\n# GraphQL queries typically start with a \"{\" character. Lines that start\n# with a # are ignored.\n#\n# An example GraphQL query might look like:\n#\n#     {\n#       field(arg: \"value\") {\n#         subField\n#       }\n#     }\n#\n# Keyboard shortcuts:\n#\n#   Prettify query:  Shift-Ctrl-P (or press the prettify button)\n#\n#  Merge fragments:  Shift-Ctrl-M (or press the merge button)\n#\n#        Run Query:  Ctrl-Enter (or press the play button)\n#\n#    Auto Complete:  Ctrl-Space (or just start typing)\n#\n\n", "graphql"=>{"query"=>"# Welcome to GraphiQL\n#\n# GraphiQL is an in-browser tool for writing, validating, and\n# testing GraphQL queries.\n#\n# Type queries into this side of the screen, and you will see intelligent\n# typeaheads aware of the current GraphQL type schema and live syntax and\n# validation errors highlighted within the text.\n#\n# GraphQL queries typically start with a \"{\" character. Lines that start\n# with a # are ignored.\n#\n# An example GraphQL query might look like:\n#\n#     {\n#       field(arg: \"value\") {\n#         subField\n#       }\n#     }\n#\n# Keyboard shortcuts:\n#\n#   Prettify query:  Shift-Ctrl-P (or press the prettify button)\n#\n#  Merge fragments:  Shift-Ctrl-M (or press the merge button)\n#\n#        Run Query:  Ctrl-Enter (or press the play button)\n#\n#    Auto Complete:  Ctrl-Space (or just start typing)\n#\n\n"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 908)
+
+
+Started POST "/graphql" for ::1 at 2024-04-30 16:27:31 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  testField\n}", "graphql"=>{"query"=>"{\n  testField\n}"}}
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 672)
+
+
+Started GET "/graphiql" for ::1 at 2024-04-30 16:28:24 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 2.2ms | Allocations: 2406)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 2958)
+
+
+Started POST "/graphql" for ::1 at 2024-04-30 16:28:24 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2320)
+
+
+  
+SyntaxError (/home/ror/rails-graphql/app/graphql/types/query_type.rb:12: syntax error, unexpected '\n', expecting =>):
+  
+app/graphql/types/query_type.rb:12: syntax error, unexpected '\n', expecting =>
+app/graphql/types/query_type.rb:12: syntax error, unexpected '\n', expecting =>
+app/graphql/rails_graphql_schema.rb:5:in `<class:RailsGraphqlSchema>'
+app/graphql/rails_graphql_schema.rb:3:in `<main>'
+app/controllers/graphql_controller.rb:17:in `execute'
+Started GET "/graphiql" for ::1 at 2024-04-30 16:30:39 +0530
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/ror/.rvm/gems/ruby-3.2.2/gems/graphiql-rails-1.10.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 3.0ms | Allocations: 2396)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 2945)
+
+
+Started POST "/graphql" for ::1 at 2024-04-30 16:30:39 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                    ofType {\n                      kind\n                      name\n                      ofType {\n                        kind\n                        name\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "operationName"=>"IntrospectionQuery"}}
+Interface `Node` hidden because it has no visible implementors
+Completed 200 OK in 28ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 17934)
+
+
+Started POST "/graphql" for ::1 at 2024-04-30 16:30:58 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n  }\n}"}}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 8166)
+
+
+Started POST "/graphql" for ::1 at 2024-04-30 16:31:17 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n\t\tdescription\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n\t\tdescription\n  }\n}"}}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 2158)
+
+
+Started POST "/graphql" for ::1 at 2024-04-30 16:31:30 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n\t\tdescription\n    userName\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n\t\tdescription\n    userName\n  }\n}"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 785)
+
+
+Started POST "/graphql" for ::1 at 2024-04-30 16:31:54 +0530
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"{\n  blogs{\n    id\n\t\tdescription\n    userId\n  }\n}", "graphql"=>{"query"=>"{\n  blogs{\n    id\n\t\tdescription\n    userId\n  }\n}"}}
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 2317)
+
+
