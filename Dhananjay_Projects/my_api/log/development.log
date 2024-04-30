@@ -1,0 +1,281 @@
+Started GET "/" for 127.0.0.1 at 2024-04-29 12:00:34 +0530
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.0ms | Allocations: 376)
+Completed 200 OK in 435ms (Views: 119.6ms | ActiveRecord: 0.0ms | Allocations: 8625)
+
+
+Started POST "/generate_response" for ::1 at 2024-04-29 12:02:21 +0530
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 200)
+
+
+  
+NameError (uninitialized constant ChatController::ChatGptService):
+  
+app/controllers/chat_controller.rb:5:in `generate_response'
+Started POST "/generate_response" for ::1 at 2024-04-29 12:11:03 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.0ms | Allocations: 2559)
+
+
+  
+NameError (uninitialized constant ChatController::ChatGptService):
+  
+app/controllers/chat_controller.rb:5:in `generate_response'
+Started POST "/generate_response" for 127.0.0.1 at 2024-04-29 12:11:54 +0530
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 98)
+
+
+  
+NameError (uninitialized constant ChatController::ChatGptService):
+  
+app/controllers/chat_controller.rb:5:in `generate_response'
+Started POST "/generate_response" for 127.0.0.1 at 2024-04-29 12:12:47 +0530
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"who is akshay kumar", "chat"=>{"prompt"=>"who is akshay kumar"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 97)
+
+
+  
+NameError (uninitialized constant ChatController::ChatGptService):
+  
+app/controllers/chat_controller.rb:5:in `generate_response'
+Started POST "/generate_response" for 127.0.0.1 at 2024-04-29 12:16:01 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"who is akshay kumar", "chat"=>{"prompt"=>"who is akshay kumar"}}
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms | Allocations: 2559)
+
+
+  
+NameError (uninitialized constant ChatController::ChatGptService):
+  
+app/controllers/chat_controller.rb:5:in `generate_response'
+Started POST "/generate_response" for 127.0.0.1 at 2024-04-29 12:23:28 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+Zeitwerk::NameError (expected file C:/Users/IND/my_api/app/services/chatgpt_service.rb to define constant ChatgptService, but didn't):
+  
+app/controllers/chat_controller.rb:1:in `<main>'
+Started POST "/generate_response" for 127.0.0.1 at 2024-04-29 12:30:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"who is akshay kumar", "chat"=>{"prompt"=>"who is akshay kumar"}}
+Completed 500 Internal Server Error in 1578ms (ActiveRecord: 0.0ms | Allocations: 4061)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/chat_gpt_service.rb:14:in `generate_response'
+app/controllers/chat_controller.rb:6:in `generate_response'
+Started POST "/generate_response" for 127.0.0.1 at 2024-04-29 12:31:59 +0530
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 500 Internal Server Error in 555ms (ActiveRecord: 0.0ms | Allocations: 961)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/chat_gpt_service.rb:14:in `generate_response'
+app/controllers/chat_controller.rb:6:in `generate_response'
+Started POST "/generate_response" for 127.0.0.1 at 2024-04-29 12:33:53 +0530
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 500 Internal Server Error in 445ms (ActiveRecord: 0.0ms | Allocations: 1029)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/chat_gpt_service.rb:17:in `generate_response'
+app/controllers/chat_controller.rb:6:in `generate_response'
+Started POST "/generate_response" for 127.0.0.1 at 2024-04-29 12:34:22 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 500 Internal Server Error in 936ms (ActiveRecord: 0.0ms | Allocations: 4068)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/chat_gpt_service.rb:17:in `generate_response'
+app/controllers/chat_controller.rb:6:in `generate_response'
+Started POST "/generate_response" for 127.0.0.1 at 2024-04-29 12:42:05 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 500 Internal Server Error in 1023ms (ActiveRecord: 0.0ms | Allocations: 4060)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/chat_gpt_service.rb:14:in `generate_response'
+app/controllers/chat_controller.rb:6:in `generate_response'
+Started POST "/generate_response" for 127.0.0.1 at 2024-04-29 12:44:07 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 500 Internal Server Error in 1007ms (ActiveRecord: 0.0ms | Allocations: 4061)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/chat_gpt_service.rb:14:in `generate_response'
+app/controllers/chat_controller.rb:6:in `generate_response'
+Started POST "/generate_response" for ::1 at 2024-04-29 12:52:10 +0530
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 500 Internal Server Error in 411ms (ActiveRecord: 0.0ms | Allocations: 961)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/chat_gpt_service.rb:14:in `generate_response'
+app/controllers/chat_controller.rb:6:in `generate_response'
+Started POST "/generate_response" for ::1 at 2024-04-29 12:53:15 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 500 Internal Server Error in 926ms (ActiveRecord: 0.0ms | Allocations: 4062)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/chat_gpt_service.rb:14:in `generate_response'
+app/controllers/chat_controller.rb:6:in `generate_response'
+Started POST "/generate_response" for ::1 at 2024-04-29 12:55:42 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 500 Internal Server Error in 776ms (ActiveRecord: 0.0ms | Allocations: 4065)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/services/chat_gpt_service.rb:14:in `generate_response'
+app/controllers/chat_controller.rb:6:in `generate_response'
+Started POST "/generate_response" for ::1 at 2024-04-29 12:58:03 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+Zeitwerk::NameError (expected file C:/Users/IND/my_api/app/services/chat_gpt_service.rb to define constant ChatGptService, but didn't):
+  
+app/controllers/chat_controller.rb:1:in `<main>'
+Started POST "/generate_response" for ::1 at 2024-04-29 13:00:04 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 200 OK in 1141ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 4274)
+
+
+Started POST "/generate_response" for ::1 at 2024-04-29 13:04:01 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+Zeitwerk::NameError (expected file C:/Users/IND/my_api/app/services/chat_gpt_service.rb to define constant ChatGptService, but didn't):
+  
+app/controllers/chat_controller.rb:1:in `<main>'
+Started POST "/generate_response" for ::1 at 2024-04-29 13:06:42 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (C:/Users/IND/my_api/app/services/chat_gpt_service.rb:16: Invalid return in class/module body
+    return "Error: Empty response from ...
+    ^~~~~~
+C:/Users/IND/my_api/app/services/chat_gpt_service.rb:25: Invalid return in class/module body
+    return { response: text }
+    ^~~~~~
+C:/Users/IND/my_api/app/services/chat_gpt_service.rb:27: Invalid return in class/module body
+    return { response: "Error: Invalid ...
+    ^~~~~~
+C:/Users/IND/my_api/app/services/chat_gpt_service.rb:31: syntax error, unexpected `end'):
+  
+app/services/chat_gpt_service.rb:16: Invalid return in class/module body
+app/services/chat_gpt_service.rb:25: Invalid return in class/module body
+app/services/chat_gpt_service.rb:27: Invalid return in class/module body
+app/services/chat_gpt_service.rb:31: syntax error, unexpected `end'
+app/controllers/chat_controller.rb:1:in `<main>'
+Started POST "/generate_response" for ::1 at 2024-04-29 13:08:43 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 200 OK in 762ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 4279)
+
+
+Started POST "/generate_response" for ::1 at 2024-04-29 13:10:22 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 200 OK in 737ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 4139)
+
+
+Started POST "/generate_response" for ::1 at 2024-04-29 13:11:57 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 200 OK in 698ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 4134)
+
+
+Started POST "/generate_response" for ::1 at 2024-04-29 13:13:07 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 200 OK in 794ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 4134)
+
+
+Started POST "/generate_response" for ::1 at 2024-04-29 13:15:01 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 200 OK in 791ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 4141)
+
+
+Started POST "/generate_response" for ::1 at 2024-04-29 13:26:35 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 200 OK in 865ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 4134)
+
+
+Started POST "/generate_response" for ::1 at 2024-04-29 13:33:20 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 200 OK in 878ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 4074)
+
+
+Started POST "/generate_response" for ::1 at 2024-04-29 13:36:24 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 200 OK in 825ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 4074)
+
+
+Started POST "/generate_response" for ::1 at 2024-04-29 13:41:02 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 200 OK in 935ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 4072)
+
+
+Started POST "/generate_response" for ::1 at 2024-04-29 13:45:43 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChatController#generate_response as */*
+  Parameters: {"prompt"=>"Once upon a time", "chat"=>{"prompt"=>"Once upon a time"}}
+Completed 200 OK in 890ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 4074)
+
+
