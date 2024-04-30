@@ -1,0 +1,15 @@
+<h1>All Posts</h1>
+<ul>
+  <% @results.each do |result| %>
+    <li>
+      <strong>Title:</strong> <%= result['title'] %><br>
+      <strong>Content:</strong> <%= result['content'] %><br><br>
+      
+      <%= link_to "Edit", edit_post_path(result['id']), class: "btn btn-primary" %>
+      <%= button_to "Delete", post_path(result['id']), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    
+    </li>
+    <br>
+  <% end %>
+</ul>
+<%= link_to "New Post", new_post_path, class: "btn btn-secondary" %>
