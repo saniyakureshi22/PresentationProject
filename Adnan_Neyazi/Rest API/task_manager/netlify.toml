@@ -1,0 +1,19 @@
+# netlify.toml
+
+# Build settings
+[build]
+  command = "bundle exec rake assets:precompile"
+  publish = "public"
+  functions = "public/netlify/functions"
+  ruby = "3.0.0"
+
+# Environment variables
+[build.environment]
+  RAILS_ENV = "production"
+  ruby = "3.0.0"
+
+# Redirects and rewrites
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

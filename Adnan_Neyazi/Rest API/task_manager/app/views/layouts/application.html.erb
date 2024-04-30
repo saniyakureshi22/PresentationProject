@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TaskManager</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-gray-800">
+      <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+        <!-- Navbar logo or brand -->
+        <div>
+          <a href="/" class="text-white font-bold">TaskManager</a>
+        </div>
+        <!-- Navbar links -->
+        <div class="flex space-x-4">
+          <%= link_to 'Customer', customers_path, class: 'text-white font-bold py-2 px-4 rounded bg-blue-500 hover:bg-blue-700' %>
+          <%= link_to 'Category', categories_path, class: 'text-white font-bold py-2 px-4 rounded bg-blue-500 hover:bg-blue-700' %>
+          <% if user_signed_in? %>
+            <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'text-white font-bold py-2 px-4 rounded bg-red-500 hover:bg-red-700' %>
+          <% else %>
+            <%= link_to 'Sign In', new_user_session_path, class: 'text-white font-bold py-2 px-4 rounded bg-blue-500 hover:bg-blue-700' %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="container mx-auto mt-10 px-5">
+      <%= yield %>
+    </main>
+  </body>
+</html>
