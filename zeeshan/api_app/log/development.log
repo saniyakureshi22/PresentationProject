@@ -1,0 +1,718 @@
+Started GET "/data" for ::1 at 2024-04-28 23:37:48 +0530
+  
+ActiveRecord::NoDatabaseError (We could not find your database: api_app_development. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.0.8.1) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.8.1) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.8.1) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.8.1) lib/active_record/migration.rb:648:in `connection'
+activerecord (7.0.8.1) lib/active_record/migration.rb:643:in `build_watcher'
+activerecord (7.0.8.1) lib/active_record/migration.rb:625:in `block in call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:624:in `synchronize'
+activerecord (7.0.8.1) lib/active_record/migration.rb:624:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (2046.2ms)[0m  [1m[35mCREATE DATABASE "api_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (1024.3ms)[0m  [1m[35mCREATE DATABASE "api_app_test" ENCODING = 'unicode'[0m
+Started GET "/data" for ::1 at 2024-04-28 23:39:07 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/data"):
+  
+Started GET "/data/index" for ::1 at 2024-04-28 23:39:17 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/data/index"):
+  
+Started GET "/api/v1/data/index" for ::1 at 2024-04-28 23:39:34 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/data/index"):
+  
+Started GET "/api/v1/apis/data/index" for ::1 at 2024-04-28 23:39:42 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/apis/data/index"):
+  
+Started GET "/api/v1/apis/data/index" for ::1 at 2024-04-28 23:41:05 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/apis/data/index"):
+  
+Started GET "/api/v1/apis/data" for ::1 at 2024-04-28 23:41:14 +0530
+  
+NameError (uninitialized constant Api::V1::ApisController::HTTPatry):
+  
+app/controllers/api/v1/apis_controller.rb:2:in `<class:ApisController>'
+app/controllers/api/v1/apis_controller.rb:1:in `<main>'
+Started GET "/api/v1/apis/data" for ::1 at 2024-04-28 23:41:29 +0530
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::ApisController):
+  
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/apis/index" for ::1 at 2024-04-28 23:41:43 +0530
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::ApisController):
+  
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/apis/index" for ::1 at 2024-04-28 23:41:56 +0530
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::ApisController):
+  
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/apis" for ::1 at 2024-04-28 23:42:32 +0530
+Processing by Api::V1::ApisController#index as */*
+Completed 200 OK in 78ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 19878)
+
+
+Started GET "/api/v1/apis" for ::1 at 2024-04-28 23:44:46 +0530
+Processing by Api::V1::ApisController#index as */*
+Completed 500 Internal Server Error in 51927ms (ActiveRecord: 0.0ms | Allocations: 133013)
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to localhost:4000 (Connection refused - connect(2) for "localhost" port 4000)):
+  
+app/services/api_service.rb:7:in `fetch_data'
+app/controllers/api/v1/apis_controller.rb:3:in `index'
+Started GET "/api/v1/apis" for ::1 at 2024-04-28 23:51:27 +0530
+Processing by Api::V1::ApisController#index as */*
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 0.0ms | Allocations: 1857)
+
+
+  
+NameError (uninitialized constant Api::V1::ApisController::ApiService):
+  
+app/controllers/api/v1/apis_controller.rb:3:in `index'
+Started GET "/api/v1/apis?text=test%20it%20now&target_language=ur&source_language=en" for ::1 at 2024-04-28 23:53:11 +0530
+Processing by Api::V1::ApisController#index as */*
+  Parameters: {"text"=>"test it now", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 65355ms (Views: 59.4ms | ActiveRecord: 0.0ms | Allocations: 421041)
+
+
+Started GET "/api/v1/apis?text=test%20it%20now&target_language=ur&source_language=en" for ::1 at 2024-04-28 23:55:07 +0530
+Processing by Api::V1::ApisController#index as */*
+  Parameters: {"text"=>"test it now", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 26567ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 111806)
+
+
+Started GET "/api/v1/apis?text=it%20is%20now%20working&target_language=ur&source_language=en" for ::1 at 2024-04-28 23:58:48 +0530
+Processing by Api::V1::ApisController#index as */*
+  Parameters: {"text"=>"it is now working", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 3822ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1955)
+
+
+Started GET "/api/v1/languages" for ::1 at 2024-04-29 00:05:56 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/languages"):
+  
+Started GET "/api/v1/languages/translate?text=it%20is%20now%20working&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:06:15 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/languages/translate"):
+  
+Started POST "/api/v1/languages/translate?text=it%20is%20now%20working&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:07:03 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/languages/translate"):
+  
+Started POST "/api/v1/translate?text=it%20is%20now%20working&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:07:12 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"it is now working", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 2406ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 22570)
+
+
+Started POST "/api/v1/translate?text=kaam%20nhi%20karna&target_language=en&source_language=ur" for ::1 at 2024-04-29 00:08:26 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"kaam nhi karna", "target_language"=>"en", "source_language"=>"ur"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1215)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:22:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:22:50 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1185)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:16:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:23:51 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1184)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:16:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:24:06 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 800)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:16:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:24:40 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1197)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:22:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:24:58 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 98602ms (ActiveRecord: 0.0ms | Allocations: 236828)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:23:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:27:06 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 2413ms (ActiveRecord: 0.0ms | Allocations: 83317)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:23:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:27:36 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 1094ms (ActiveRecord: 0.0ms | Allocations: 143907)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:23:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/fetch_languages" for ::1 at 2024-04-29 00:29:04 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/fetch_languages"):
+  
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 00:30:10 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 500 Internal Server Error in 155ms (ActiveRecord: 0.0ms | Allocations: 89472)
+
+
+  
+NameError (undefined local variable or method `text' for #<LanguageService:0x00007f0c78de3268>
+Did you mean?  test):
+  
+app/services/language_service.rb:35:in `fetch_languages'
+app/controllers/api/v1/languages_controller.rb:10:in `fetch_languages'
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 00:30:44 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 500 Internal Server Error in 19157ms (ActiveRecord: 0.0ms | Allocations: 134080)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:35:in `fetch_languages'
+app/controllers/api/v1/languages_controller.rb:10:in `fetch_languages'
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 00:32:48 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 500 Internal Server Error in 645ms (ActiveRecord: 0.0ms | Allocations: 87620)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:35:in `fetch_languages'
+app/controllers/api/v1/languages_controller.rb:10:in `fetch_languages'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:38:05 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 5219ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 2315)
+
+
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:40:00 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 15238ms (ActiveRecord: 0.0ms | Allocations: 90640)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:23:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:41:35 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 1138)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:22:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 00:42:46 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms | Allocations: 819)
+
+
+  
+NoMethodError (undefined method `fetch_languages' for #<LanguageService:0x00007f0c78a4dd60>):
+  
+app/controllers/api/v1/languages_controller.rb:10:in `fetch_languages'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:43:16 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 3135ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1645)
+
+
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:43:32 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1157)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:22:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:43:42 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 2201ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1942)
+
+
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:43:57 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1155)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:22:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:44:00 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 800)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:22:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:45:09 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1132)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:22:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:45:14 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 2634ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1960)
+
+
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:48:23 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.0ms | Allocations: 1133)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/translation_service.rb:22:in `translate'
+app/controllers/api/v1/languages_controller.rb:4:in `translate'
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:48:46 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 3527ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1993)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 00:49:47 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms | Allocations: 431)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 2..3)):
+  
+app/services/language_service.rb:8:in `fetch_languages'
+app/controllers/api/v1/languages_controller.rb:10:in `fetch_languages'
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 00:50:03 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 1882ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1284)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 00:50:35 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 735ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1253)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 00:52:07 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 4697ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 3807)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 00:53:01 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 1783ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 3834)
+
+
+Started POST "/api/v1/translate?text=working%20thing&target_language=ur&source_language=en" for ::1 at 2024-04-29 00:54:10 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"working thing", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 1900ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 2005)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 00:54:18 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 1621ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 3392)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 20:05:08 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 3105ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 23071)
+
+
+Started POST "/api/v1/translate?text=test%20the%20work&target_language=ur&source_language=en" for ::1 at 2024-04-29 20:05:36 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"test the work", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 2249ms (Views: 40.7ms | ActiveRecord: 0.0ms | Allocations: 1675)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 20:08:19 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 826)
+
+
+  
+NoMethodError (undefined method `language_service' for #<LanguageService:0x00007f6f28679398>):
+  
+app/controllers/api/v1/languages_controller.rb:8:in `fetch_languages'
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 20:08:46 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 1609ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 3715)
+
+
+Started POST "/api/v1/translate?text=it%20is%20working&target_language=ur&source_language=en" for ::1 at 2024-04-29 20:09:16 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"it is working", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 2453ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1575)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 20:10:12 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 1087)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/services/language_service.rb:33:in `fetch_languages'
+app/controllers/api/v1/languages_controller.rb:8:in `fetch_languages'
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 20:10:36 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 2311ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 3753)
+
+
+Started POST "/api/v1/translate?text=it%20is%20working&target_language=ur&source_language=en" for ::1 at 2024-04-29 20:14:39 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"it is working", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 1710ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 2029)
+
+
+[dotenv] Loaded [33m.env[0m
+Started POST "/api/v1/translate?text=it%20is%20working&target_language=ur&source_language=en" for ::1 at 2024-04-29 20:18:42 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"it is working", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 1149ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 22072)
+
+
+Started POST "/api/v1/translate?text=it%20is%20working&target_language=ur&source_language=en" for ::1 at 2024-04-29 20:19:01 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"it is working", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 1317ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1461)
+
+
+[dotenv] Loaded [33m.env[0m
+Started POST "/api/v1/translate?text=it%20is%20working&target_language=ur&source_language=en" for ::1 at 2024-04-29 20:19:32 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"it is working", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 2049ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 22083)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 20:19:43 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 78491ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 196742)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 20:21:07 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 1981ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 81996)
+
+
+[dotenv] Set [36mapi_key[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 20:21:28 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 9188ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 151222)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 20:21:54 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 2734ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 89470)
+
+
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 20:22:16 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 10699ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 115390)
+
+
+[dotenv] Set [36mrapid_api_key[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-29 20:22:33 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 4644ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 151484)
+
+
+Started POST "/api/v1/translate?text=it%20is%20working&target_language=ur&source_language=en" for ::1 at 2024-04-29 20:22:58 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"it is working", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 1039ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1558)
+
+
+Started POST "/api/v1/translate?text=it%20is%20working&target_language=ur&source_language=en" for ::1 at 2024-04-29 20:23:16 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"it is working", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 2178ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1996)
+
+
+Started POST "/api/v1/translate?text=it%20is%20working&target_language=hi&source_language=en" for ::1 at 2024-04-29 20:23:35 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"it is working", "target_language"=>"hi", "source_language"=>"en"}
+Completed 200 OK in 1728ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1564)
+
+
+[dotenv] Set [36mrapid_api_key[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/api/v1/fetch_languages" for ::1 at 2024-04-30 22:53:12 +0530
+Processing by Api::V1::LanguagesController#fetch_languages as */*
+Completed 200 OK in 2214ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 23167)
+
+
+Started POST "/api/v1/translate?text=testing%20is%20in%20progress&target_language=hi&source_language=en" for ::1 at 2024-04-30 22:54:31 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"testing is in progress", "target_language"=>"hi", "source_language"=>"en"}
+Completed 200 OK in 2220ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1653)
+
+
+Started POST "/api/v1/translate?text=testing%20is%20in%20progress&target_language=ur&source_language=en" for ::1 at 2024-04-30 22:54:48 +0530
+Processing by Api::V1::LanguagesController#translate as */*
+  Parameters: {"text"=>"testing is in progress", "target_language"=>"ur", "source_language"=>"en"}
+Completed 200 OK in 1949ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1579)
+
+

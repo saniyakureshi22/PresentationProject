@@ -1,0 +1,838 @@
+  [1m[35m (1620.5ms)[0m  [1m[35mCREATE DATABASE "sql_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (959.6ms)[0m  [1m[35mCREATE DATABASE "sql_app_test" ENCODING = 'unicode'[0m
+  [1m[35m (1374.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "sql_app_development"[0m
+  [1m[35m (312.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "sql_app_test"[0m
+  [1m[35m (1068.8ms)[0m  [1m[35mCREATE DATABASE "sql_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (897.1ms)[0m  [1m[35mCREATE DATABASE "sql_app_test" ENCODING = 'unicode'[0m
+  [1m[35m (2243.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (231.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (60.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6925313976973432005)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20240430052733)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (284.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240430052733"]]
+  [1m[36mTRANSACTION (26.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateArticles (20240430052748)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (270.2ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "description" text, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_3d31dad1cc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (70.2ms)[0m  [1m[35mCREATE INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240430052748"]]
+  [1m[36mTRANSACTION (26.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (18.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (90.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-04-30 05:31:32.150732"], ["updated_at", "2024-04-30 05:31:32.150732"]]
+  [1m[36mTRANSACTION (51.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6925313976973432005)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Will"], ["last_name", "Metz"], ["email", "will637@test.com"], ["created_at", "2024-04-30 05:32:27.806680"], ["updated_at", "2024-04-30 05:32:27.806680"]]
+  [1m[36mTRANSACTION (46.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Marlin"], ["last_name", "Macejkovic"], ["email", "marlin442@test.com"], ["created_at", "2024-04-30 05:32:27.861735"], ["updated_at", "2024-04-30 05:32:27.861735"]]
+  [1m[36mTRANSACTION (48.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Marti"], ["last_name", "Emard"], ["email", "marti799@test.com"], ["created_at", "2024-04-30 05:32:27.917005"], ["updated_at", "2024-04-30 05:32:27.917005"]]
+  [1m[36mTRANSACTION (14.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Keneth"], ["last_name", "Rohan"], ["email", "keneth45@test.com"], ["created_at", "2024-04-30 05:32:27.939572"], ["updated_at", "2024-04-30 05:32:27.939572"]]
+  [1m[36mTRANSACTION (58.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Keva"], ["last_name", "Adams"], ["email", "keva637@test.com"], ["created_at", "2024-04-30 05:32:28.005706"], ["updated_at", "2024-04-30 05:32:28.005706"]]
+  [1m[36mTRANSACTION (59.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Edison"], ["last_name", "Jenkins"], ["email", "edison955@test.com"], ["created_at", "2024-04-30 05:36:40.085040"], ["updated_at", "2024-04-30 05:36:40.085040"]]
+  [1m[36mTRANSACTION (36.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Norman"], ["last_name", "Mosciski"], ["email", "norman663@test.com"], ["created_at", "2024-04-30 05:36:40.130318"], ["updated_at", "2024-04-30 05:36:40.130318"]]
+  [1m[36mTRANSACTION (49.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Erwin"], ["last_name", "Baumbach"], ["email", "erwin607@test.com"], ["created_at", "2024-04-30 05:36:40.188249"], ["updated_at", "2024-04-30 05:36:40.188249"]]
+  [1m[36mTRANSACTION (134.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Angelo"], ["last_name", "Wehner"], ["email", "angelo963@test.com"], ["created_at", "2024-04-30 05:36:40.329488"], ["updated_at", "2024-04-30 05:36:40.329488"]]
+  [1m[36mTRANSACTION (105.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Santo"], ["last_name", "Metz"], ["email", "santo49@test.com"], ["created_at", "2024-04-30 05:36:40.441235"], ["updated_at", "2024-04-30 05:36:40.441235"]]
+  [1m[36mTRANSACTION (138.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.5ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (100.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The Skull Beneath the Skin"], ["description", "[\"Similique est voluptatum. Numquam dolores ducimus. Omnis eius est.\", \"Placeat eos enim. Id labore mollitia. Enim excepturi doloribus.\", \"Perferendis sunt ullam. Soluta officiis iure. Deleniti ab perferendis.\"]"], ["user_id", 10], ["created_at", "2024-04-30 05:36:40.849364"], ["updated_at", "2024-04-30 05:36:40.849364"]]
+  [1m[36mTRANSACTION (61.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Endless Night"], ["description", "[\"Omnis eaque voluptatem. Enim et nemo. Blanditiis sed consequatur.\", \"Tenetur animi est. Qui iure nam. Non aliquid corporis.\", \"Quisquam iure est. Sed et id. Explicabo odio tenetur.\"]"], ["user_id", 9], ["created_at", "2024-04-30 05:36:41.028117"], ["updated_at", "2024-04-30 05:36:41.028117"]]
+  [1m[36mTRANSACTION (36.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Moab Is My Washpot"], ["description", "[\"Sunt harum quia. Ducimus ad molestiae. Accusantium blanditiis perferendis.\", \"Sed illum molestiae. Quasi et voluptas. Officiis magni commodi.\", \"Autem tempora rerum. Sint est quo. Quo at voluptatem.\"]"], ["user_id", 2], ["created_at", "2024-04-30 05:36:41.078573"], ["updated_at", "2024-04-30 05:36:41.078573"]]
+  [1m[36mTRANSACTION (44.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "I Know Why the Caged Bird Sings"], ["description", "[\"Culpa et reiciendis. Exercitationem omnis nesciunt. Voluptatem eius non.\", \"Praesentium quia rem. Sed cumque et. Qui ea aliquid.\", \"Dolor esse sit. Asperiores autem provident. Sit amet nihil.\"]"], ["user_id", 1], ["created_at", "2024-04-30 05:36:41.134984"], ["updated_at", "2024-04-30 05:36:41.134984"]]
+  [1m[36mTRANSACTION (64.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "A Many-Splendoured Thing"], ["description", "[\"Dolores et qui. Quidem aut magni. Velit accusamus et.\", \"Blanditiis dicta placeat. Voluptas aliquam aut. Sunt id est.\", \"Animi sed est. Nesciunt inventore nemo. Ut iusto a.\"]"], ["user_id", 10], ["created_at", "2024-04-30 05:36:41.212110"], ["updated_at", "2024-04-30 05:36:41.212110"]]
+  [1m[36mTRANSACTION (59.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Blue Remembered Earth"], ["description", "[\"Rerum repellat enim. Saepe incidunt laboriosam. Quos cum aut.\", \"Deleniti id quos. Nostrum inventore est. Atque sed accusamus.\", \"Quo id rem. Facilis in nostrum. Totam excepturi id.\"]"], ["user_id", 5], ["created_at", "2024-04-30 05:36:41.287508"], ["updated_at", "2024-04-30 05:36:41.287508"]]
+  [1m[36mTRANSACTION (22.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "In Dubious Battle"], ["description", "[\"Vel quo sint. Ea omnis eveniet. Et quis sint.\", \"Et consectetur hic. Neque officia nihil. Beatae aspernatur at.\", \"Quo dolores ut. Iure voluptates ad. Quia dignissimos rerum.\"]"], ["user_id", 6], ["created_at", "2024-04-30 05:36:41.323466"], ["updated_at", "2024-04-30 05:36:41.323466"]]
+  [1m[36mTRANSACTION (54.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The Lathe of Heaven"], ["description", "[\"Minima ea nihil. Tempora molestiae vel. Sint fugit quia.\", \"Adipisci sint vitae. Voluptatem expedita suscipit. Dolores cumque suscipit.\", \"Adipisci officia at. Aliquam perspiciatis labore. Maxime molestiae et.\"]"], ["user_id", 8], ["created_at", "2024-04-30 05:36:41.394407"], ["updated_at", "2024-04-30 05:36:41.394407"]]
+  [1m[36mTRANSACTION (63.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "All the King's Men"], ["description", "[\"Cupiditate qui sunt. Magni ipsum sit. Quia quisquam aliquam.\", \"Nobis a nemo. Sunt soluta iure. Provident ipsum aut.\", \"Vero fugit sequi. Est voluptate quia. Accusantium harum accusamus.\"]"], ["user_id", 4], ["created_at", "2024-04-30 05:36:41.472132"], ["updated_at", "2024-04-30 05:36:41.472132"]]
+  [1m[36mTRANSACTION (50.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "A Monstrous Regiment of Women"], ["description", "[\"Possimus voluptatum laborum. Explicabo nulla aliquam. Vero et voluptatem.\", \"Quae sequi voluptas. Omnis corrupti quo. Nobis ut saepe.\", \"Ut sint tenetur. Et ipsa sunt. Id consequatur ratione.\"]"], ["user_id", 4], ["created_at", "2024-04-30 05:36:41.533923"], ["updated_at", "2024-04-30 05:36:41.533923"]]
+  [1m[36mTRANSACTION (59.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "That Hideous Strength"], ["description", "[\"Perspiciatis et non. Qui dolore eum. Omnis iste ad.\", \"Voluptatem voluptatum dolorum. Voluptas quod alias. Voluptas ex voluptas.\", \"Sapiente cupiditate sit. Illum perspiciatis facere. Dolorum sunt aut.\"]"], ["user_id", 5], ["created_at", "2024-04-30 05:36:41.605436"], ["updated_at", "2024-04-30 05:36:41.605436"]]
+  [1m[36mTRANSACTION (50.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "By Grand Central Station I Sat Down and Wept"], ["description", "[\"Aut accusamus corrupti. Aliquid impedit non. Ut omnis est.\", \"Cum eum temporibus. Quo et sit. Cumque eos quam.\", \"Quasi officiis omnis. Ipsam autem explicabo. Nemo qui esse.\"]"], ["user_id", 9], ["created_at", "2024-04-30 05:36:41.689590"], ["updated_at", "2024-04-30 05:36:41.689590"]]
+  [1m[36mTRANSACTION (32.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "A Confederacy of Dunces"], ["description", "[\"Voluptatem qui dolorem. Beatae modi accusamus. Est veritatis in.\", \"Et vel dolorem. Et dicta eum. Qui cupiditate quasi.\", \"Ullam ea ipsa. Fugit non molestias. Aliquid itaque dolorem.\"]"], ["user_id", 9], ["created_at", "2024-04-30 05:36:41.734126"], ["updated_at", "2024-04-30 05:36:41.734126"]]
+  [1m[36mTRANSACTION (52.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.5ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The Mermaids Singing"], ["description", "[\"Sed aut doloribus. Earum distinctio a. Iste aliquam ea.\", \"Sed atque harum. Reiciendis omnis quo. Cupiditate recusandae id.\", \"Placeat voluptatem cum. Doloribus quia reprehenderit. Sint asperiores ducimus.\"]"], ["user_id", 9], ["created_at", "2024-04-30 05:36:41.805368"], ["updated_at", "2024-04-30 05:36:41.805368"]]
+  [1m[36mTRANSACTION (47.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Waiting for the Barbarians"], ["description", "[\"Voluptas dolores nobis. Dolore eum similique. Aut odit sed.\", \"Voluptas illum velit. Exercitationem provident sit. Illum nesciunt et.\", \"Autem et blanditiis. Culpa voluptas quibusdam. Quas et impedit.\"]"], ["user_id", 6], ["created_at", "2024-04-30 05:36:41.866299"], ["updated_at", "2024-04-30 05:36:41.866299"]]
+  [1m[36mTRANSACTION (54.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "A Swiftly Tilting Planet"], ["description", "[\"Et tempora quia. Quia quidem aliquam. Deserunt soluta nesciunt.\", \"Quo aut quisquam. Modi quidem quis. Suscipit aut pariatur.\", \"Quos fuga praesentium. Maxime repellat cumque. Vel dolores commodi.\"]"], ["user_id", 4], ["created_at", "2024-04-30 05:36:41.933610"], ["updated_at", "2024-04-30 05:36:41.933610"]]
+  [1m[36mTRANSACTION (54.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Many Waters"], ["description", "[\"Illo eum at. Fuga error expedita. Aut ducimus qui.\", \"Occaecati delectus et. Necessitatibus a possimus. Sunt accusamus ipsa.\", \"Exercitationem quia illo. Eveniet error exercitationem. Sint laborum omnis.\"]"], ["user_id", 1], ["created_at", "2024-04-30 05:36:41.999226"], ["updated_at", "2024-04-30 05:36:41.999226"]]
+  [1m[36mTRANSACTION (55.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "If I Forget Thee Jerusalem"], ["description", "[\"Voluptate molestiae officiis. Quia non aliquam. Consequatur aliquid architecto.\", \"Deserunt consequuntur odio. Neque tempora iste. Voluptatem facere eos.\", \"Quasi ullam libero. Sint et accusantium. Vel molestiae consequuntur.\"]"], ["user_id", 1], ["created_at", "2024-04-30 05:36:42.066426"], ["updated_at", "2024-04-30 05:36:42.066426"]]
+  [1m[36mTRANSACTION (54.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "A Scanner Darkly"], ["description", "[\"Omnis iure harum. Hic impedit rerum. Rerum delectus repudiandae.\", \"Dolores accusantium et. Sint non voluptatem. Ut harum accusantium.\", \"Ut laborum omnis. Facilis ad voluptatibus. Ratione sed excepturi.\"]"], ["user_id", 7], ["created_at", "2024-04-30 05:36:42.133332"], ["updated_at", "2024-04-30 05:36:42.133332"]]
+  [1m[36mTRANSACTION (53.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The Widening Gyre"], ["description", "[\"Maiores fugiat ducimus. Sit suscipit laborum. Unde est atque.\", \"Maiores et eum. Rem tenetur quisquam. Numquam veritatis eaque.\", \"Sit esse minima. Placeat impedit qui. At consequatur quaerat.\"]"], ["user_id", 1], ["created_at", "2024-04-30 05:36:42.202838"], ["updated_at", "2024-04-30 05:36:42.202838"]]
+  [1m[36mTRANSACTION (49.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api/v1/users/" for ::1 at 2024-04-30 11:20:27 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `end'
+		@users User.all
+		       ^~~~
+/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:10: syntax error, unexpected constant, expecting `end'
+		@user User.find(params[:id])
+		      ^~~~
+/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:16: syntax error, unexpected constant, expecting `end'
+		@user User.new(user_params)
+		      ^~~~
+/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:26: syntax error, unexpected constant, expecting `end'
+		@user User.find(params[:id])
+		      ^~~~
+/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:29: syntax error, unexpected ')', expecting '}'
+...: 'User successfully updated.'), status: 200
+...                              ^
+/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:37: syntax error, unexpected constant, expecting `end'
+		@user User.find(params[:id])
+		      ^~~~
+/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:40: syntax error, unexpected ')', expecting '}'
+...: 'User successfully deleted.'), status: 200
+...                              ^
+):
+  
+app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `end'
+app/controllers/api/v1/users_controller.rb:10: syntax error, unexpected constant, expecting `end'
+app/controllers/api/v1/users_controller.rb:16: syntax error, unexpected constant, expecting `end'
+app/controllers/api/v1/users_controller.rb:26: syntax error, unexpected constant, expecting `end'
+app/controllers/api/v1/users_controller.rb:29: syntax error, unexpected ')', expecting '}'
+app/controllers/api/v1/users_controller.rb:37: syntax error, unexpected constant, expecting `end'
+app/controllers/api/v1/users_controller.rb:40: syntax error, unexpected ')', expecting '}'
+app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `end'
+app/controllers/api/v1/users_controller.rb:10: syntax error, unexpected constant, expecting `end'
+app/controllers/api/v1/users_controller.rb:16: syntax error, unexpected constant, expecting `end'
+app/controllers/api/v1/users_controller.rb:26: syntax error, unexpected constant, expecting `end'
+app/controllers/api/v1/users_controller.rb:29: syntax error, unexpected ')', expecting '}'
+app/controllers/api/v1/users_controller.rb:37: syntax error, unexpected constant, expecting `end'
+app/controllers/api/v1/users_controller.rb:40: syntax error, unexpected ')', expecting '}'
+Started GET "/api/v1/users/" for ::1 at 2024-04-30 11:21:40 +0530
+  
+SyntaxError (/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:29: syntax error, unexpected ')', expecting '}'
+...: 'User successfully updated.'), status: 200
+...                              ^
+/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:40: syntax error, unexpected ')', expecting '}'
+...: 'User successfully deleted.'), status: 200
+...                              ^
+):
+  
+app/controllers/api/v1/users_controller.rb:29: syntax error, unexpected ')', expecting '}'
+app/controllers/api/v1/users_controller.rb:40: syntax error, unexpected ')', expecting '}'
+app/controllers/api/v1/users_controller.rb:29: syntax error, unexpected ')', expecting '}'
+app/controllers/api/v1/users_controller.rb:40: syntax error, unexpected ')', expecting '}'
+Started GET "/api/v1/users/" for ::1 at 2024-04-30 11:21:53 +0530
+  
+SyntaxError (/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:29: syntax error, unexpected ')', expecting '}'
+...: 'User successfully updated.'), status: 200
+...                              ^
+/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:40: syntax error, unexpected ')', expecting '}'
+...: 'User successfully deleted.'), status: 200
+...                              ^
+):
+  
+app/controllers/api/v1/users_controller.rb:29: syntax error, unexpected ')', expecting '}'
+app/controllers/api/v1/users_controller.rb:40: syntax error, unexpected ')', expecting '}'
+app/controllers/api/v1/users_controller.rb:29: syntax error, unexpected ')', expecting '}'
+app/controllers/api/v1/users_controller.rb:40: syntax error, unexpected ')', expecting '}'
+Started GET "/api/v1/users/" for ::1 at 2024-04-30 11:23:28 +0530
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (31.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 446ms (Views: 140.4ms | ActiveRecord: 79.3ms | Allocations: 39784)
+
+
+Started GET "/api/v1/users/" for ::1 at 2024-04-30 11:24:29 +0530
+  
+SyntaxError (/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `do' or '{' or '('
+		@users = SELECT * FROM Users;
+		                       ^~~~~
+):
+  
+app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `do' or '{' or '('
+app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `do' or '{' or '('
+Started GET "/api/v1/users/" for ::1 at 2024-04-30 11:24:55 +0530
+  
+SyntaxError (/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `do' or '{' or '('
+		@users = Select * from Users;
+		                       ^~~~~
+):
+  
+app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `do' or '{' or '('
+app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `do' or '{' or '('
+Started GET "/api/v1/users/" for ::1 at 2024-04-30 11:25:09 +0530
+  
+SyntaxError (/home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `do' or '{' or '('
+		@users = Select * From Users;
+		                       ^~~~~
+):
+  
+app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `do' or '{' or '('
+app/controllers/api/v1/users_controller.rb:4: syntax error, unexpected constant, expecting `do' or '{' or '('
+Started GET "/api/v1/users/" for ::1 at 2024-04-30 11:29:47 +0530
+Processing by Api::V1::UsersController#index as */*
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 0.0ms | Allocations: 2046)
+
+
+  
+NameError (undefined local variable or method `sql_query' for #<Api::V1::UsersController:0x00000000024518>):
+  
+app/controllers/api/v1/users_controller.rb:5:in `index'
+Started GET "/api/v1/users/" for ::1 at 2024-04-30 11:29:59 +0530
+Processing by Api::V1::UsersController#index as */*
+  [1m[35m (55.6ms)[0m  [1m[34mSELECT * FROM users[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 322ms (Views: 206.1ms | ActiveRecord: 55.6ms | Allocations: 1166)
+
+
+Started GET "/api/v1/users/2" for ::1 at 2024-04-30 11:31:02 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (27.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `show'
+Completed 200 OK in 564ms (Views: 0.5ms | ActiveRecord: 105.1ms | Allocations: 6053)
+
+
+Started GET "/api/v1/users/2" for ::1 at 2024-04-30 11:31:39 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT * FROM users WHERE id = 2[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 525)
+
+
+Started POST "/api/v1/users/?first_name=test&last_name=last%20test&email=test@test.com" for ::1 at 2024-04-30 13:07:06 +0530
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com"}
+Completed 400 Bad Request in 323ms (ActiveRecord: 0.0ms | Allocations: 200)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/api/v1/users_controller.rb:53:in `user_params'
+app/controllers/api/v1/users_controller.rb:18:in `create'
+Started POST "/api/v1/users/?first_name=test&last_name=last%20test&email=test@test.com" for ::1 at 2024-04-30 13:08:12 +0530
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com"}
+Completed 400 Bad Request in 52677ms (ActiveRecord: 0.0ms | Allocations: 236828)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/api/v1/users_controller.rb:54:in `user_params'
+app/controllers/api/v1/users_controller.rb:18:in `create'
+Started POST "/api/v1/users/?first_name=test&last_name=last%20test&email=test@test.com" for ::1 at 2024-04-30 13:09:32 +0530
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 182)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/api/v1/users_controller.rb:53:in `user_params'
+app/controllers/api/v1/users_controller.rb:18:in `create'
+Started POST "/api/v1/users/?first_name=test&last_name=last%20test&email=test@test.com" for ::1 at 2024-04-30 13:14:47 +0530
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 183)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/api/v1/users_controller.rb:53:in `user_params'
+app/controllers/api/v1/users_controller.rb:18:in `create'
+Started POST "/api/v1/users/" for ::1 at 2024-04-30 13:18:16 +0530
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com", "user"=>{"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com"}}
+  [1m[35m (48.9ms)[0m  [1m[32mINSERT INTO users (first_name, last_name, email) VALUES ('test','last test', 'test@test.com') RETURNING *[0m
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `create'
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 755.6ms | Allocations: 564)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "created_at" violates not-null constraint
+DETAIL:  Failing row contains (11, test, last test, test@test.com, null, null).
+):
+  
+app/controllers/api/v1/users_controller.rb:19:in `create'
+  [1m[36mUser Load (57.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/v1/users/" for ::1 at 2024-04-30 13:22:52 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (53.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com", "user"=>{"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com"}}
+  [1m[35m (17.0ms)[0m  [1m[32mINSERT INTO users (first_name, last_name, email) VALUES ('test','last test', 'test@test.com') RETURNING *[0m
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `create'
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 20.1ms | Allocations: 20690)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "created_at" violates not-null constraint
+DETAIL:  Failing row contains (12, test, last test, test@test.com, null, null).
+):
+  
+app/controllers/api/v1/users_controller.rb:19:in `create'
+Started POST "/api/v1/users/" for ::1 at 2024-04-30 13:24:51 +0530
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com", "user"=>{"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com"}}
+  [1m[35m (8.2ms)[0m  [1m[32mINSERT INTO users (first_name, last_name, email, created_at) VALUES ('test','last test', 'test@test.com', CURRENT_TIMESTAMP)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `create'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 11.6ms | Allocations: 565)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "updated_at" violates not-null constraint
+DETAIL:  Failing row contains (13, test, last test, test@test.com, 2024-04-30 07:54:51.577748, null).
+):
+  
+app/controllers/api/v1/users_controller.rb:19:in `create'
+Started POST "/api/v1/users/" for ::1 at 2024-04-30 13:26:26 +0530
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com", "user"=>{"first_name"=>"test", "last_name"=>"last test", "email"=>"test@test.com"}}
+  [1m[35m (113.9ms)[0m  [1m[32mINSERT INTO users (first_name, last_name, email, created_at, updated_at) VALUES ('test','last test', 'test@test.com', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP) RETURNING *[0m
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `create'
+Completed 200 OK in 5142ms (Views: 0.6ms | ActiveRecord: 116.4ms | Allocations: 132649)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started PUT "/api/v1/users/14" for ::1 at 2024-04-30 20:02:25 +0530
+Processing by Api::V1::UsersController#update as */*
+  Parameters: {"first_name"=>"test updated", "last_name"=>"last test", "email"=>"test@test.com", "id"=>"14", "user"=>{"first_name"=>"test updated", "last_name"=>"last test", "email"=>"test@test.com"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:41:in `update'
+  [1m[35m (172.1ms)[0m  [1m[33mUPDATE users SET first_name = 'test updated', last_name = 'last test', email = 'test@test.com', updated_at = CURRENT_TIMESTAMP WHERE id = 14[0m
+  ↳ app/controllers/api/v1/users_controller.rb:48:in `update'
+Completed 200 OK in 474ms (Views: 47.2ms | ActiveRecord: 335.3ms | Allocations: 17019)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/api/v1/users/like_query?query=test" for ::1 at 2024-04-30 20:18:27 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"query"=>"test", "id"=>"like_query"}
+  [1m[35m (35.7ms)[0m  [1m[34mSELECT * FROM users WHERE id = like_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 44.6ms | Allocations: 3169)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "like_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = like_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/like_query?query=test" for ::1 at 2024-04-30 20:18:55 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"query"=>"test", "id"=>"like_query"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT * FROM users WHERE id = like_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.5ms | Allocations: 455)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "like_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = like_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/like_query?query=test" for ::1 at 2024-04-30 20:20:08 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"query"=>"test", "id"=>"like_query"}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT * FROM users WHERE id = like_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.8ms | Allocations: 455)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "like_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = like_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/like_query?query=test" for ::1 at 2024-04-30 20:22:18 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"query"=>"test", "id"=>"like_query"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT * FROM users WHERE id = like_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.5ms | Allocations: 451)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "like_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = like_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/like_query?query=test" for ::1 at 2024-04-30 20:24:08 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"query"=>"test", "id"=>"like_query"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT * FROM users WHERE id = like_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.5ms | Allocations: 406)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "like_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = like_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/like_query?query=test" for ::1 at 2024-04-30 20:28:33 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"query"=>"test", "id"=>"like_query"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT * FROM users WHERE id = like_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.6ms | Allocations: 451)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "like_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = like_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/user_like_query?query=test" for ::1 at 2024-04-30 20:31:34 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"query"=>"test", "id"=>"user_like_query"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT * FROM users WHERE id = user_like_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.7ms | Allocations: 451)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "user_like_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = user_like_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/user_like_query?query=test" for ::1 at 2024-04-30 20:32:28 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"query"=>"test", "id"=>"user_like_query"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT * FROM users WHERE id = user_like_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.5ms | Allocations: 451)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "user_like_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = user_like_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/like_query?query=test" for ::1 at 2024-04-30 20:50:10 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (219.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#like_query as */*
+  Parameters: {"query"=>"test"}
+  [1m[35m (70.0ms)[0m  [1m[34mSELECT * FROM users WHERE first_name LIKE '%test%' OR last_name LIKE '%test%'[0m
+  ↳ app/controllers/api/v1/users_controller.rb:62:in `like_query'
+Completed 200 OK in 8179ms (Views: 0.5ms | ActiveRecord: 70.0ms | Allocations: 156345)
+
+
+Started POST "/api/v1/users/" for ::1 at 2024-04-30 20:51:17 +0530
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"first_name"=>"test new", "last_name"=>"last test", "email"=>"test@test.com", "user"=>{"first_name"=>"test new", "last_name"=>"last test", "email"=>"test@test.com"}}
+  [1m[35m (74.1ms)[0m  [1m[32mINSERT INTO users (first_name, last_name, email, created_at, updated_at) VALUES ('test new','last test', 'test@test.com', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP) RETURNING *[0m
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `create'
+Completed 200 OK in 6757ms (Views: 0.5ms | ActiveRecord: 77.1ms | Allocations: 83366)
+
+
+Started GET "/api/v1/users/like_query?query=test" for ::1 at 2024-04-30 20:51:32 +0530
+Processing by Api::V1::UsersController#like_query as */*
+  Parameters: {"query"=>"test"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT * FROM users WHERE first_name LIKE '%test%' OR last_name LIKE '%test%'[0m
+  ↳ app/controllers/api/v1/users_controller.rb:62:in `like_query'
+Completed 200 OK in 8620ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 83626)
+
+
+Started DELETE "/api/v1/users/9" for ::1 at 2024-04-30 20:58:10 +0530
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:57:in `destroy'
+  [1m[35m (110.5ms)[0m  [1m[31mDELETE FROM users WHERE id = 9[0m
+  ↳ app/controllers/api/v1/users_controller.rb:62:in `destroy'
+Completed 500 Internal Server Error in 298ms (ActiveRecord: 124.8ms | Allocations: 21566)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "users" violates foreign key constraint "fk_rails_3d31dad1cc" on table "articles"
+DETAIL:  Key (id)=(9) is still referenced from table "articles".
+):
+  
+app/controllers/api/v1/users_controller.rb:62:in `destroy'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mArticle Count (53.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 9]]
+Started DELETE "/api/v1/users/9" for ::1 at 2024-04-30 21:03:07 +0530
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:57:in `destroy'
+  [1m[35m (91.4ms)[0m  [1m[31mDELETE FROM articles WHERE user_id = 9[0m
+  ↳ app/controllers/api/v1/users_controller.rb:64:in `destroy'
+  [1m[35m (9.9ms)[0m  [1m[31mDELETE FROM users WHERE id = 9[0m
+  ↳ app/controllers/api/v1/users_controller.rb:65:in `destroy'
+Completed 200 OK in 123ms (Views: 0.5ms | ActiveRecord: 109.6ms | Allocations: 4883)
+
+
+  [1m[36mArticle Count (5.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 9]]
+Started GET "/api/v1/users/count_query?query=test" for ::1 at 2024-04-30 21:10:56 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"query"=>"test", "id"=>"count_query"}
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT * FROM users WHERE id = count_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 14.2ms | Allocations: 3169)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "count_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = count_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/count_query" for ::1 at 2024-04-30 21:11:13 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"count_query"}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT * FROM users WHERE id = count_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.9ms | Allocations: 406)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "count_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = count_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/count_query/" for ::1 at 2024-04-30 21:12:06 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"count_query"}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT * FROM users WHERE id = count_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.8ms | Allocations: 451)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "count_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = count_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/user_count_query/" for ::1 at 2024-04-30 21:12:29 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"user_count_query"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT * FROM users WHERE id = user_count_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.5ms | Allocations: 406)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "user_count_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = user_count_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/user_count_query/" for ::1 at 2024-04-30 21:12:48 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"user_count_query"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT * FROM users WHERE id = user_count_query[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `show'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.6ms | Allocations: 455)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "user_count_query" does not exist
+LINE 1: SELECT * FROM users WHERE id = user_count_query
+                                       ^
+):
+  
+app/controllers/api/v1/users_controller.rb:12:in `show'
+Started GET "/api/v1/users/count_query/" for ::1 at 2024-04-30 21:12:56 +0530
+Processing by Api::V1::UsersController#count_query as */*
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) AS user_count FROM users[0m
+  ↳ app/controllers/api/v1/users_controller.rb:88:in `count_query'
+Completed 204 No Content in 3ms (ActiveRecord: 1.4ms | Allocations: 327)
+
+
+Started GET "/api/v1/users/count_query/" for ::1 at 2024-04-30 21:13:31 +0530
+Processing by Api::V1::UsersController#count_query as */*
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) AS user_count FROM users[0m
+  ↳ (rdbg)//home/user/Desktop/sql_app/app/controllers/api/v1/users_controller.rb:1:in `count_query'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) AS user_count FROM users[0m
+  ↳ app/controllers/api/v1/users_controller.rb:89:in `count_query'
+Completed 204 No Content in 10721ms (ActiveRecord: 1.0ms | Allocations: 118594)
+
+
+Started GET "/api/v1/users/count_query/" for ::1 at 2024-04-30 21:14:07 +0530
+Processing by Api::V1::UsersController#count_query as */*
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) AS user_count FROM users[0m
+  ↳ app/controllers/api/v1/users_controller.rb:89:in `count_query'
+Completed 200 OK in 877ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 99618)
+
+
+Started GET "/api/v1/articles" for ::1 at 2024-04-30 21:17:43 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles"):
+  
+Started GET "/api/v1/articles" for ::1 at 2024-04-30 21:20:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[35m (22.1ms)[0m  [1m[34m      SELECT articles.*, users.name AS user_name
+      FROM articles
+      INNER JOIN users ON articles.user_id = users.id
+      ORDER BY articles.created_at DESC
+[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `index'
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 22.1ms | Allocations: 19269)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column users.name does not exist
+LINE 1:       SELECT articles.*, users.name AS user_name
+                                 ^
+):
+  
+app/controllers/api/v1/articles_controller.rb:12:in `index'
+Started GET "/api/v1/users/inner_join_query" for ::1 at 2024-04-30 21:24:34 +0530
+Processing by Api::V1::UsersController#inner_join_query as */*
+  [1m[35m (118.2ms)[0m  [1m[34m      SELECT users.*, COUNT(articles.id) AS articles_count
+      FROM users
+      INNER JOIN articles ON users.id = articles.user_id
+      GROUP BY users.id
+[0m
+  ↳ app/controllers/api/v1/users_controller.rb:86:in `inner_join_query'
+Completed 200 OK in 122ms (Views: 2.1ms | ActiveRecord: 118.2ms | Allocations: 1200)
+
+
+Started GET "/api/v1/users/inner_join_query" for ::1 at 2024-04-30 21:25:43 +0530
+Processing by Api::V1::UsersController#inner_join_query as */*
+  [1m[35m (0.6ms)[0m  [1m[34m      SELECT users.*, articles.id AS article_id, articles.title AS article_title
+          FROM users
+          INNER JOIN articles ON users.id = articles.user_id
+[0m
+  ↳ app/controllers/api/v1/users_controller.rb:85:in `inner_join_query'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.6ms | Allocations: 1979)
+
+
+Started GET "/api/v1/users" for ::1 at 2024-04-30 23:03:37 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (45.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as */*
+  [1m[35m (57.9ms)[0m  [1m[34mSELECT * FROM users[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 169ms (Views: 1.3ms | ActiveRecord: 57.9ms | Allocations: 20133)
+
+
+Started GET "/api/v1/users" for ::1 at 2024-04-30 23:04:29 +0530
+Processing by Api::V1::UsersController#index as */*
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT * FROM users[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 1158)
+
+
+Started GET "/api/v1/users/15" for ::1 at 2024-04-30 23:04:58 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"15"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT * FROM users WHERE id = 15[0m
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `show'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 463)
+
+
+Started POST "/api/v1/users/" for ::1 at 2024-04-30 23:06:01 +0530
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"first_name"=>"new user", "last_name"=>"last user", "email"=>"newuser@test.com", "user"=>{"first_name"=>"new user", "last_name"=>"last user", "email"=>"newuser@test.com"}}
+  [1m[35m (232.2ms)[0m  [1m[32mINSERT INTO users (first_name, last_name, email, created_at, updated_at) VALUES ('new user','last user', 'newuser@test.com', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP) RETURNING *[0m
+  ↳ app/controllers/api/v1/users_controller.rb:17:in `create'
+Completed 200 OK in 234ms (Views: 0.4ms | ActiveRecord: 235.8ms | Allocations: 593)
+
+
+Started GET "/api/v1/users" for ::1 at 2024-04-30 23:06:17 +0530
+Processing by Api::V1::UsersController#index as */*
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT * FROM users[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 1221)
+
+
+Started PUT "/api/v1/users/16" for ::1 at 2024-04-30 23:07:39 +0530
+Processing by Api::V1::UsersController#update as */*
+  Parameters: {"first_name"=>"new user updated", "last_name"=>"lupdated last name", "email"=>"updatedemail@test.com", "id"=>"16", "user"=>{"first_name"=>"new user updated", "last_name"=>"lupdated last name", "email"=>"updatedemail@test.com"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:26:in `update'
+  [1m[35m (26.2ms)[0m  [1m[33mUPDATE users SET first_name = 'new user updated', last_name = 'lupdated last name', email = 'updatedemail@test.com', updated_at = CURRENT_TIMESTAMP WHERE id = 16[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `update'
+Completed 200 OK in 351ms (Views: 0.3ms | ActiveRecord: 233.2ms | Allocations: 17849)
+
+
+Started GET "/api/v1/users/16" for ::1 at 2024-04-30 23:07:51 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"16"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT * FROM users WHERE id = 16[0m
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `show'
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 446)
+
+
+Started DELETE "/api/v1/users/16" for ::1 at 2024-04-30 23:08:28 +0530
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:43:in `destroy'
+  [1m[35m (14.4ms)[0m  [1m[31mDELETE FROM articles WHERE user_id = 16[0m
+  ↳ app/controllers/api/v1/users_controller.rb:50:in `destroy'
+  [1m[35m (25.2ms)[0m  [1m[31mDELETE FROM users WHERE id = 16[0m
+  ↳ app/controllers/api/v1/users_controller.rb:51:in `destroy'
+Completed 200 OK in 51ms (Views: 0.3ms | ActiveRecord: 43.7ms | Allocations: 1114)
+
+
+Started GET "/api/v1/users/16" for ::1 at 2024-04-30 23:08:38 +0530
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"16"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT * FROM users WHERE id = 16[0m
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 369)
+
+
+Started GET "/api/v1/users" for ::1 at 2024-04-30 23:08:49 +0530
+Processing by Api::V1::UsersController#index as */*
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT * FROM users[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.5ms | Allocations: 1150)
+
+
+Started GET "/api/v1/users/like_query?query=test" for ::1 at 2024-04-30 23:09:21 +0530
+Processing by Api::V1::UsersController#like_query as */*
+  Parameters: {"query"=>"test"}
+  [1m[35m (143.8ms)[0m  [1m[34mSELECT * FROM users WHERE first_name LIKE '%test%' OR last_name LIKE '%test%'[0m
+  ↳ app/controllers/api/v1/users_controller.rb:63:in `like_query'
+Completed 200 OK in 146ms (Views: 0.4ms | ActiveRecord: 143.8ms | Allocations: 518)
+
+
+Started GET "/api/v1/users/count_query" for ::1 at 2024-04-30 23:10:10 +0530
+Processing by Api::V1::UsersController#count_query as */*
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) AS user_count FROM users[0m
+  ↳ app/controllers/api/v1/users_controller.rb:74:in `count_query'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 364)
+
+
+  [1m[36mUser Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/api/v1/users/inner_join_query" for ::1 at 2024-04-30 23:10:53 +0530
+Processing by Api::V1::UsersController#inner_join_query as */*
+  [1m[35m (30.0ms)[0m  [1m[34m      SELECT users.*, COUNT(articles.id) AS articles_count
+      FROM users
+      INNER JOIN articles ON users.id = articles.user_id
+      GROUP BY users.id
+[0m
+  ↳ app/controllers/api/v1/users_controller.rb:94:in `inner_join_query'
+Completed 200 OK in 33ms (Views: 1.2ms | ActiveRecord: 30.0ms | Allocations: 1047)
+
+

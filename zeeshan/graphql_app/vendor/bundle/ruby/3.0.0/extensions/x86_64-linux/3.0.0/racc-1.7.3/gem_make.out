@@ -1,0 +1,15 @@
+current directory: /home/user/Desktop/graphql_app/vendor/bundle/ruby/3.0.0/gems/racc-1.7.3/ext/racc/cparse
+/home/user/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/user/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20240427-9784-d1249e.rb extconf.rb
+creating Makefile
+
+current directory: /home/user/Desktop/graphql_app/vendor/bundle/ruby/3.0.0/gems/racc-1.7.3/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /home/user/Desktop/graphql_app/vendor/bundle/ruby/3.0.0/gems/racc-1.7.3/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /home/user/Desktop/graphql_app/vendor/bundle/ruby/3.0.0/gems/racc-1.7.3/ext/racc/cparse
+make "DESTDIR=" install
+/usr/bin/install -m 0755 cparse.so ./.gem.20240427-9784-xo7zh8/racc
